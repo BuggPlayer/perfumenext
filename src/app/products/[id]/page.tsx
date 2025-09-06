@@ -57,19 +57,19 @@ const ProductDetailsPage: React.FC = () => {
         <nav className="text-sm text-gray-500 mb-8">
           <ol className="flex items-center space-x-2">
             <li>
-              <a href="/" className="hover:text-yellow-600 transition-colors">
+              <a href="/" className="hover:text-primary-600 transition-colors">
                 Home
               </a>
             </li>
             <li>/</li>
             <li>
-              <a href="/products" className="hover:text-yellow-600 transition-colors">
+              <a href="/products" className="hover:text-primary-600 transition-colors">
                 Products
               </a>
             </li>
             <li>/</li>
             <li>
-              <a href={`/categories/${product.category.toLowerCase()}`} className="hover:text-yellow-600 transition-colors">
+              <a href={`/categories/${product.category.toLowerCase()}`} className="hover:text-primary-600 transition-colors">
                 {product.category}
               </a>
             </li>
@@ -133,7 +133,7 @@ const ProductDetailsPage: React.FC = () => {
                     <svg
                       key={i}
                       className={`w-4 h-4 ${
-                        i < review.rating ? 'text-yellow-500 fill-current' : 'text-gray-300'
+                        i < review.rating ? 'text-primary-500 fill-current' : 'text-gray-300'
                       }`}
                       viewBox="0 0 20 20"
                     >
@@ -147,7 +147,7 @@ const ProductDetailsPage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8">
-            <button className="px-6 py-3 bg-yellow-500 text-black font-medium rounded-lg hover:bg-yellow-600 transition-colors">
+            <button className="px-6 py-3 bg-primary-500 text-black font-medium rounded-lg hover:bg-primary-600 transition-colors">
               Write a Review
             </button>
           </div>

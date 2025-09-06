@@ -21,7 +21,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
   const steps = [
     { key: 'pending', label: 'Order Placed', icon: Clock, color: 'text-gray-500' },
     { key: 'confirmed', label: 'Order Confirmed', icon: CheckCircle, color: 'text-blue-500' },
-    { key: 'processing', label: 'Processing', icon: Package, color: 'text-yellow-500' },
+    { key: 'processing', label: 'Processing', icon: Package, color: 'text-primary-500' },
     { key: 'shipped', label: 'Shipped', icon: Truck, color: 'text-purple-500' },
     { key: 'delivered', label: 'Delivered', icon: CheckCircle, color: 'text-green-500' }
   ];
@@ -45,14 +45,14 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
             <div key={step.key} className="flex items-center">
               <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${
                 isActive 
-                  ? 'border-yellow-500 bg-yellow-500 text-white' 
+                  ? 'border-primary-500 bg-primary-500 text-white' 
                   : 'border-gray-300 bg-gray-100 text-gray-400'
               }`}>
                 <Icon className={`w-4 h-4 ${isCurrent ? 'animate-pulse' : ''}`} />
               </div>
               {index < steps.length - 1 && (
                 <div className={`w-8 h-1 mx-2 ${
-                  isActive ? 'bg-yellow-500' : 'bg-gray-300'
+                  isActive ? 'bg-primary-500' : 'bg-gray-300'
                 }`} />
               )}
             </div>
@@ -69,7 +69,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
         <span className={`px-3 py-1 rounded-full text-sm font-medium ${
           status === 'cancelled' ? 'bg-red-100 text-red-800' :
           status === 'delivered' ? 'bg-green-100 text-green-800' :
-          'bg-yellow-100 text-yellow-800'
+          'bg-primary-100 text-primary-800'
         }`}>
           {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
@@ -88,8 +88,8 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
                 <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
                   isCompleted 
                     ? 'border-green-500 bg-green-500 text-white' 
-                    : isCurrent 
-                    ? 'border-yellow-500 bg-yellow-500 text-white animate-pulse' 
+                  : isCurrent 
+                    ? 'border-primary-500 bg-primary-500 text-white animate-pulse' 
                     : 'border-gray-300 bg-gray-100 text-gray-400'
                 }`}>
                   <Icon className="w-5 h-5" />
@@ -114,7 +114,7 @@ const OrderStatus: React.FC<OrderStatusProps> = ({
               
               {index < steps.length - 1 && (
                 <div className={`absolute left-5 top-10 w-0.5 h-12 ${
-                  isActive ? 'bg-yellow-500' : 'bg-gray-300'
+                  isActive ? 'bg-primary-500' : 'bg-gray-300'
                 }`} style={{ marginLeft: '-1px' }} />
               )}
             </div>

@@ -6,6 +6,7 @@ const AboutPage: React.FC = () => {
   return (
     <Layout>
       <div className="bg-gray-50 min-h-screen">
+
         <div className="container mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -83,8 +84,8 @@ const AboutPage: React.FC = () => {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-yellow-100 rounded-full flex items-center justify-center">
-                  <Globe className="w-8 h-8 text-yellow-600" />
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary-100 rounded-full flex items-center justify-center">
+                  <Globe className="w-8 h-8 text-primary-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Reach</h3>
                 <p className="text-gray-600">

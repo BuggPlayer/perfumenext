@@ -5,7 +5,8 @@ import { useAppSelector } from '@/store/hooks';
 import { CreditCard, Plus, Edit, Trash2, Lock, Shield } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import PaymentForm, { PaymentMethod } from '@/components/forms/PaymentForm';
 
@@ -43,7 +44,7 @@ const PaymentMethodsPage: React.FC = () => {
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Please sign in to manage payment methods</h1>
             <p className="text-gray-600 mb-6">You need to be signed in to manage your payment methods.</p>
-            <Button href="/auth/signin">Sign In</Button>
+            <Link href="/auth/signin"><Button>Sign In</Button></Link>
           </div>
         </div>
       </Layout>
@@ -139,7 +140,7 @@ const PaymentMethodsPage: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center">
-            <CreditCard className="w-8 h-8 mr-3 text-yellow-600" />
+            <CreditCard className="w-8 h-8 mr-3 text-primary-600" />
             Payment Methods
           </h1>
           <p className="text-gray-600">Manage your payment methods for faster checkout</p>
@@ -173,7 +174,7 @@ const PaymentMethodsPage: React.FC = () => {
             <Card key={payment.id} className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-yellow-100 rounded-full">
+                  <div className="p-2 bg-primary-100 rounded-full">
                     {getPaymentIcon(payment.type)}
                   </div>
                   <div>

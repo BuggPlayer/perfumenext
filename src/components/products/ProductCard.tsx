@@ -49,8 +49,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           onClick={handleWishlistToggle}
           className={`absolute top-2 right-2 p-1.5 rounded-full transition-all duration-200 ${
             isInWishlist
-              ? 'bg-yellow-500 text-black shadow-lg'
-              : 'bg-white text-gray-600 hover:bg-yellow-50 hover:text-yellow-600'
+              ? 'bg-primary-500 text-black shadow-lg'
+              : 'bg-white text-gray-600 hover:bg-primary-50 hover:text-primary-600'
           }`}
         >
           <Heart className={`w-3.5 h-3.5 ${isInWishlist ? 'fill-current' : ''}`} />
@@ -58,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         
         {/* Discount Badge */}
         {product.originalPrice && product.originalPrice > product.price && (
-          <div className="absolute top-2 left-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded">
+          <div className="absolute top-2 left-2 bg-primary-500 text-black text-xs font-bold px-2 py-1 rounded">
             -{calculateDiscount(product.originalPrice, product.price)}%
           </div>
         )}
@@ -78,7 +78,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         
         {/* Product Name */}
         <Link href={`/products/${product.id}`}>
-          <h3 className="font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-yellow-600 transition-colors text-sm cursor-pointer">
+          <h3 className="font-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors text-sm cursor-pointer">
             {product.name}
           </h3>
         </Link>
@@ -91,7 +91,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
                 key={i}
                 className={`w-3 h-3 ${
                   i < Math.floor(product.rating)
-                    ? 'text-yellow-500 fill-current'
+                    ? 'text-primary-500 fill-current'
                     : 'text-gray-300'
                 }`}
               />

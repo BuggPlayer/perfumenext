@@ -15,7 +15,7 @@ const ThemeSwitcher: React.FC = () => {
       variant: 'premium',
       name: 'Premium Black & Gold',
       description: 'Luxury black and golden theme',
-      preview: ['bg-black', 'bg-yellow-500', 'bg-gray-800', 'bg-yellow-400']
+      preview: ['bg-black', 'bg-primary-500', 'bg-gray-800', 'bg-primary-400']
     },
     {
       variant: 'elegant',
@@ -33,13 +33,13 @@ const ThemeSwitcher: React.FC = () => {
       variant: 'classic',
       name: 'Classic Red & Gold',
       description: 'Traditional red and gold theme',
-      preview: ['bg-red-600', 'bg-yellow-500', 'bg-gray-700', 'bg-red-400']
+      preview: ['bg-red-600', 'bg-primary-500', 'bg-gray-700', 'bg-red-400']
     },
     {
       variant: 'custom',
       name: 'Custom Theme',
       description: 'Your personalized color scheme',
-      preview: ['bg-gradient-to-r from-pink-500 to-purple-500', 'bg-gradient-to-r from-blue-500 to-green-500', 'bg-gray-600', 'bg-gradient-to-r from-yellow-400 to-orange-500']
+      preview: ['bg-gradient-to-r from-pink-500 to-purple-500', 'bg-gradient-to-r from-blue-500 to-green-500', 'bg-gray-600', 'bg-gradient-to-r from-primary-400 to-orange-500']
     }
   ];
 

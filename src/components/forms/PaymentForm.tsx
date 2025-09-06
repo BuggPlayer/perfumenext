@@ -45,7 +45,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({
     <div className={`space-y-4 ${className}`}>
       {title && (
         <h3 className="text-lg font-semibold text-gray-900 border-b border-gray-200 pb-2 flex items-center">
-          <CreditCard className="w-5 h-5 mr-2 text-yellow-600" />
+          <CreditCard className="w-5 h-5 mr-2 text-primary-600" />
           {title}
         </h3>
       )}
@@ -54,7 +54,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({
         <Select
           label="Payment Method"
           value={paymentMethod.type}
-          onChange={(value) => handleChange('type', value)}
+          onChange={(e) => handleChange('type', e.target.value)}
           options={[
             { value: 'card', label: 'Credit/Debit Card' },
             { value: 'paypal', label: 'PayPal' },
@@ -87,7 +87,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({
             <Select
               label="Expiry Month"
               value={paymentMethod.expiryMonth || ''}
-              onChange={(value) => handleChange('expiryMonth', value)}
+              onChange={(e) => handleChange('expiryMonth', e.target.value)}
               options={months}
               required
             />
@@ -95,7 +95,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({
             <Select
               label="Expiry Year"
               value={paymentMethod.expiryYear || ''}
-              onChange={(value) => handleChange('expiryYear', value)}
+              onChange={(e) => handleChange('expiryYear', e.target.value)}
               options={years.map(year => ({ value: year.toString(), label: year.toString() }))}
               required
             />

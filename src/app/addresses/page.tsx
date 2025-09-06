@@ -143,7 +143,7 @@ const AddressesPage: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center">
-            <MapPin className="w-8 h-8 mr-3 text-yellow-600" />
+            <MapPin className="w-8 h-8 mr-3 text-primary-600" />
             My Addresses
           </h1>
           <p className="text-gray-600">Manage your delivery addresses for faster checkout</p>
@@ -163,7 +163,7 @@ const AddressesPage: React.FC = () => {
             <Card key={address.id} className="p-6">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-yellow-100 rounded-full">
+                  <div className="p-2 bg-primary-100 rounded-full">
                     {getAddressIcon(address.type)}
                   </div>
                   <div>

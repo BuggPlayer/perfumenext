@@ -1,241 +1,568 @@
-# PerfumeLux - Premium Fragrance E-commerce Website
+# Perfume E-commerce Website Architecture
 
-A modern, responsive e-commerce website built with Next.js, TypeScript, Redux Toolkit, and TailwindCSS for selling premium perfumes and fragrances.
+## Overview
 
-## 🚀 Features
-
-### Core E-commerce Features
-- **Product Catalog**: Browse and search through premium fragrances
-- **Advanced Filtering**: Filter by category, brand, price range, and rating
-- **Shopping Cart**: Add/remove items, update quantities, persistent storage
-- **Wishlist**: Save favorite products for later
-- **User Authentication**: User registration, login, and profile management
-- **Order Management**: Track order status and history
-- **Responsive Design**: Mobile-first approach with modern UI/UX
-
-### Technical Features
-- **Next.js 14**: App Router with TypeScript
-- **Redux Toolkit**: State management with persistence
-- **TailwindCSS**: Utility-first CSS framework
-- **ESLint**: Code quality and consistency
-- **Responsive Design**: Mobile, tablet, and desktop optimized
-- **Performance**: Optimized images, lazy loading, and efficient rendering
-
-## 🛠️ Tech Stack
-
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **State Management**: Redux Toolkit, Redux Persist
-- **Styling**: TailwindCSS, CSS Modules
-- **Icons**: Lucide React
-- **Forms**: React Hook Form with Zod validation
-- **Build Tool**: Next.js built-in bundler
-- **Package Manager**: npm
-
-## 📁 Project Structure
-
-```
-perfume/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── globals.css        # Global styles
-│   │   ├── layout.tsx         # Root layout
-│   │   ├── page.tsx           # Homepage
-│   │   └── products/          # Products page
-│   ├── components/            # Reusable components
-│   │   ├── ui/               # Base UI components
-│   │   ├── layout/           # Layout components
-│   │   ├── home/             # Homepage components
-│   │   ├── products/         # Product-related components
-│   │   ├── cart/             # Shopping cart components
-│   │   └── providers/        # Context providers
-│   ├── store/                # Redux store configuration
-│   │   ├── store.ts          # Store setup
-│   │   ├── hooks.ts          # Redux hooks
-│   │   └── slices/           # Redux slices
-│   ├── data/                 # Demo data and constants
-│   └── lib/                  # Utility functions
-├── public/                   # Static assets
-├── package.json              # Dependencies and scripts
-└── README.md                 # Project documentation
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd perfume
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
+This is a comprehensive, modern e-commerce website built with Next.js, TypeScript, Redux Toolkit, and Tailwind CSS. The architecture emphasizes reusability, consistency, and maintainability through a well-structured component system, comprehensive theming, and proper state management.
 
 ## 🏗️ Architecture Overview
 
-### State Management
-The application uses Redux Toolkit for centralized state management with the following slices:
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (Button, Card, Input, etc.)
+│   ├── search/         # Search and filtering components
+│   ├── layout/         # Layout components (Navbar, Footer)
+│   ├── home/           # Home page specific components
+│   ├── products/       # Product related components
+│   ├── cart/           # Cart related components
+│   ├── auth/           # Authentication components
+│   └── account/        # User account components
+├── redux/              # State management
+│   ├── features/       # Redux slices
+│   ├── store.ts        # Redux store configuration
+│   └── hooks.ts        # Redux hooks
+├── services/           # API services
+├── theme/              # Design system and theming
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── hooks/              # Custom React hooks
+```
 
-- **Auth Slice**: User authentication and profile data
-- **Product Slice**: Product catalog, filtering, and search
-- **Cart Slice**: Shopping cart functionality
-- **Wishlist Slice**: User's favorite products
-- **Order Slice**: Order management and history
+## 🎨 Design System & Theming
 
-### Component Architecture
-- **Layout Components**: Header, Footer, Navigation
-- **UI Components**: Button, Card, Input (reusable base components)
-- **Feature Components**: ProductCard, CartSidebar, HeroSection
-- **Page Components**: Homepage, Products page
+### Theme Configuration (`src/theme/index.ts`)
 
-### Data Flow
-1. **Demo Data**: Currently uses static demo data for development
-2. **State Updates**: User interactions trigger Redux actions
-3. **UI Updates**: Components re-render based on state changes
-4. **Persistence**: Cart and wishlist data persists across sessions
+The theme system provides a comprehensive design token system including:
 
-## 🎨 Design System
+- **Colors**: Primary, secondary, success, warning, error, and neutral color palettes
+- **Typography**: Font families, sizes, weights, and line heights
+- **Spacing**: Consistent spacing scale (xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
+- **Border Radius**: Standardized border radius values
+- **Shadows**: Elevation and depth through shadow system
+- **Transitions**: Consistent animation durations
+- **Breakpoints**: Responsive design breakpoints
+- **Z-Index**: Layering system for components
 
-### Color Palette
-- **Primary**: Purple (#8B5CF6) to Pink (#EC4899) gradient
-- **Secondary**: Gray scale for text and backgrounds
-- **Accent**: Blue and yellow for highlights
-- **Success**: Green for positive actions
-- **Error**: Red for errors and destructive actions
+### Usage
 
-### Typography
-- **Font Family**: Inter (Google Fonts)
-- **Headings**: Bold weights for hierarchy
-- **Body Text**: Regular weight for readability
-- **Responsive**: Scalable font sizes across devices
+```typescript
+import { theme } from '@/theme';
 
-### Components
-- **Cards**: Consistent spacing and shadows
-- **Buttons**: Multiple variants (primary, secondary, outline, ghost)
-- **Forms**: Accessible input fields with focus states
-- **Navigation**: Sticky header with smooth transitions
+// Access theme values
+const primaryColor = theme.colors.primary[500];
+const spacing = theme.spacing.lg;
+const borderRadius = theme.borderRadius.lg;
+```
+
+## 🧩 Reusable UI Components
+
+### Core Components
+
+#### Button (`src/components/ui/Button.tsx`)
+- Multiple variants: primary, secondary, outline, ghost, danger, success
+- Multiple sizes: xs, sm, md, lg, xl
+- Loading states with spinners
+- Icon support (left/right)
+- Full-width option
+- Rounded variants
+
+```typescript
+import { Button } from '@/components/ui';
+
+<Button 
+  variant="primary" 
+  size="lg" 
+  isLoading={loading}
+  leftIcon={<Icon />}
+>
+  Click Me
+</Button>
+```
+
+#### Card (`src/components/ui/Card.tsx`)
+- Multiple variants: default, elevated, outlined, filled
+- Configurable padding: none, sm, md, lg, xl
+- Hoverable option with animations
+- Header, body, and footer sections
+
+```typescript
+import { Card, CardHeader, CardBody, CardFooter } from '@/components/ui';
+
+<Card variant="elevated" padding="lg" hoverable>
+  <CardHeader>Title</CardHeader>
+  <CardBody>Content</CardBody>
+  <CardFooter>Actions</CardFooter>
+</Card>
+```
+
+#### Input (`src/components/ui/Input.tsx`)
+- Multiple variants: default, outlined, filled
+- Multiple sizes: sm, md, lg
+- Label, helper text, and error states
+- Icon support (left/right)
+- Full-width option
+
+```typescript
+import { Input } from '@/components/ui';
+
+<Input
+  label="Email"
+  variant="outlined"
+  size="lg"
+  leftIcon={<EmailIcon />}
+  error="Invalid email"
+  helperText="Enter your email address"
+/>
+```
+
+#### Badge (`src/components/ui/Badge.tsx`)
+- Multiple variants: primary, secondary, success, warning, error, info
+- Multiple sizes: sm, md, lg
+- Rounded option
+
+```typescript
+import { Badge } from '@/components/ui';
+
+<Badge variant="success" size="md" rounded>
+  Active
+</Badge>
+```
+
+#### Modal (`src/components/ui/Modal.tsx`)
+- Multiple sizes: sm, md, lg, xl, full
+- Backdrop click to close
+- Escape key to close
+- Customizable header and close button
+- Portal rendering for proper z-index handling
+
+```typescript
+import { Modal } from '@/components/ui';
+
+<Modal 
+  isOpen={isOpen} 
+  onClose={onClose}
+  title="Confirmation"
+  size="md"
+>
+  Modal content here
+</Modal>
+```
+
+#### Skeleton (`src/components/ui/Skeleton.tsx`)
+- Multiple variants: text, circular, rectangular, rounded
+- Configurable dimensions and animations
+- Specialized components: SkeletonCard, SkeletonTable, SkeletonForm
+- Loading state placeholders for better UX
+
+```typescript
+import { Skeleton, SkeletonCard, SkeletonProductGrid } from '@/components/ui';
+
+// Basic skeleton
+<Skeleton variant="text" height={20} width="100%" />
+
+// Product grid skeleton
+<SkeletonProductGrid items={8} />
+
+// Card skeleton
+<SkeletonCard />
+```
+
+#### Notification (`src/components/ui/Notification.tsx`)
+- Multiple types: success, error, warning, info
+- Auto-dismiss with configurable duration
+- Action buttons and persistent notifications
+- Multiple positioning options
+- Toast component for simple messages
+
+```typescript
+import { NotificationContainer, Toast } from '@/components/ui';
+
+// Show notification
+window.showNotification({
+  type: 'success',
+  title: 'Success!',
+  message: 'Your order has been placed.',
+  duration: 5000,
+});
+
+// Show toast
+<Toast type="success" message="Item added to cart" />
+```
+
+### Search & Filtering Components
+
+#### SearchBar (`src/components/search/SearchBar.tsx`)
+- Real-time search suggestions
+- Keyboard navigation support
+- Search history tracking
+- Auto-complete functionality
+- Clear search option
+
+```typescript
+import { SearchBar } from '@/components/search';
+
+<SearchBar
+  placeholder="Search for perfumes..."
+  showSuggestions={true}
+  onSearch={(query) => console.log('Searching:', query)}
+/>
+```
+
+#### AdvancedFilters (`src/components/search/AdvancedFilters.tsx`)
+- Category, brand, and price filtering
+- Rating and availability filters
+- Collapsible filter sections
+- Active filter display
+- Clear all filters option
+
+```typescript
+import { AdvancedFilters } from '@/components/search';
+
+<AdvancedFilters
+  showFilters={true}
+  onToggleFilters={() => setShowFilters(!showFilters)}
+/>
+```
+
+## 🔄 State Management (Redux Toolkit)
+
+### Store Structure
+
+The Redux store is organized into feature-based slices:
+
+- **auth**: User authentication and profile management
+- **products**: Product catalog, search, and filtering
+- **cart**: Shopping cart management
+- **orders**: Order management and tracking
+- **wishlist**: User wishlist management
+- **home**: Home page content and banners
+
+### Key Features
+
+- **Async Thunks**: Proper async operation handling
+- **Error Handling**: Comprehensive error state management
+- **Loading States**: Loading indicators for all async operations
+- **Optimistic Updates**: Immediate UI feedback for better UX
+- **Persistence**: Cart and wishlist data persistence
+
+### Usage Example
+
+```typescript
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts, addToCart } from '@/redux/features';
+import { RootState } from '@/redux/store';
+
+const Component = () => {
+  const dispatch = useDispatch();
+  const { products, loading } = useSelector((state: RootState) => state.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  if (loading) return <SkeletonProductGrid />;
+
+  return (
+    <div>
+      {products.map(product => (
+        <ProductCard 
+          key={product.id} 
+          product={product}
+          onAddToCart={handleAddToCart}
+        />
+      ))}
+    </div>
+  );
+};
+```
+
+## 🌐 API Services
+
+### Service Architecture
+
+- **Base API Client**: Axios-based with interceptors
+- **Service Modules**: Domain-specific services (products, auth, orders, payments, recommendations)
+- **Error Handling**: Centralized error handling and user feedback
+- **Request/Response Interceptors**: Authentication, logging, and error handling
+- **Type Safety**: Full TypeScript support for API responses
+
+### Core Services
+
+#### Product Service (`src/services/productService.ts`)
+- Product CRUD operations
+- Search and filtering
+- Category and brand management
+- Product reviews and ratings
+
+#### Auth Service (`src/services/authService.ts`)
+- User authentication and registration
+- Profile management
+- Password operations
+- Token management
+
+#### Payment Service (`src/services/paymentService.ts`)
+- Payment processing with Stripe
+- Payment method management
+- Refund handling
+- Webhook processing
+- Card validation utilities
+
+#### Recommendation Service (`src/services/recommendationService.ts`)
+- Personalized product recommendations
+- Related products
+- Trending items
+- User behavior tracking
+- Collaborative filtering
+
+### Service Example
+
+```typescript
+import { productService, paymentService, recommendationService } from '@/services';
+
+// Fetch products with filters
+const products = await productService.getProducts({
+  category: 'mens-fragrances',
+  minPrice: 50,
+  maxPrice: 200,
+  sort: { field: 'price', order: 'asc' },
+  page: 1,
+  limit: 12
+});
+
+// Process payment
+const payment = await paymentService.processPayment(
+  paymentMethodId,
+  amount,
+  'usd'
+);
+
+// Get recommendations
+const recommendations = await recommendationService.getPersonalizedRecommendations(
+  userId,
+  10
+);
+```
+
+## 🔍 Search & Discovery Features
+
+### Advanced Search System
+
+- **Real-time Search**: Instant search suggestions as you type
+- **Smart Filtering**: Category, brand, price, rating, and availability filters
+- **Search History**: Track and display recent searches
+- **Auto-complete**: Intelligent search suggestions
+- **Filter Persistence**: Maintain filter state across sessions
+
+### Product Recommendations
+
+- **Personalized**: Based on user behavior and preferences
+- **Related Products**: Similar items and complementary products
+- **Trending**: Popular and rising products
+- **Seasonal**: Time-based recommendations
+- **Collaborative**: Based on similar user preferences
+
+## 💳 Payment Integration
+
+### Stripe Integration
+
+- **Payment Processing**: Secure credit card processing
+- **Multiple Payment Methods**: Cards, digital wallets
+- **Webhook Handling**: Real-time payment status updates
+- **Refund Management**: Automated and manual refunds
+- **Security**: PCI compliance and fraud protection
+
+### Payment Features
+
+- **Payment Intents**: Secure payment authorization
+- **Saved Payment Methods**: User payment method storage
+- **Subscription Support**: Recurring payments
+- **Multi-currency**: International payment support
+- **Payment Analytics**: Transaction tracking and reporting
+
+## 📱 User Experience Enhancements
+
+### Loading States
+
+- **Skeleton Components**: Placeholder content during loading
+- **Progressive Loading**: Load content in stages
+- **Loading Indicators**: Clear feedback for user actions
+- **Optimistic Updates**: Immediate UI feedback
+
+### Error Handling
+
+- **User-Friendly Messages**: Clear error explanations
+- **Retry Mechanisms**: Easy recovery from failures
+- **Fallback UI**: Graceful degradation
+- **Error Boundaries**: Prevent app crashes
+
+### Notifications
+
+- **Toast Messages**: Quick feedback for actions
+- **Persistent Notifications**: Important information display
+- **Action Notifications**: Interactive notifications with buttons
+- **Positioning Options**: Multiple notification locations
+
+## 🎯 Component Patterns
+
+### Consistent Styling
+
+All components use the theme system for consistent styling:
+
+```typescript
+// Consistent color usage
+className="bg-primary-500 text-white hover:bg-primary-600"
+
+// Consistent spacing
+className="p-4 m-2 space-y-4"
+
+// Consistent transitions
+className="transition-all duration-200 ease-in-out"
+```
+
+### Responsive Design
+
+Components are built with responsive design in mind:
+
+```typescript
+// Responsive classes
+className="
+  text-sm md:text-base lg:text-lg
+  p-2 md:p-4 lg:p-6
+  grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+"
+```
+
+### Accessibility
+
+Components include proper accessibility features:
+
+- ARIA labels and roles
+- Keyboard navigation support
+- Focus management
+- Screen reader support
+- High contrast support
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Building
+
+```bash
+npm run build
+npm start
+```
 
 ## 📱 Responsive Design
 
-### Breakpoints
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
+The website is fully responsive with breakpoints:
 
-### Mobile-First Approach
-- Touch-friendly interactions
-- Optimized navigation for small screens
-- Collapsible filters and menus
-- Swipe gestures for mobile users
+- **xs**: 340px (very small devices)
+- **sm**: 450px (small mobile)
+- **md**: 768px (tablets)
+- **lg**: 1024px (desktops)
+- **xl**: 1280px (large desktops)
+- **2xl**: 1536px (extra large screens)
 
-## 🔧 Configuration
+## 🎨 Customization
 
-### Environment Variables
-Create a `.env.local` file for environment-specific configuration:
+### Adding New Components
 
-```env
-NEXT_PUBLIC_API_URL=your-api-url
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-stripe-key
-```
+1. Create component in appropriate directory
+2. Use theme tokens for styling
+3. Export from `src/components/ui/index.ts`
+4. Add TypeScript interfaces
+5. Include proper accessibility features
 
-### TailwindCSS Configuration
-Custom configuration in `tailwind.config.js`:
-- Custom color palette
-- Extended spacing and typography
-- Component-specific utilities
+### Adding New Redux Features
 
-## 🚀 Deployment
+1. Create slice in `src/redux/features/`
+2. Add to store configuration
+3. Export actions and types
+4. Update `src/redux/features/index.ts`
 
-### Build for Production
-```bash
-npm run build
-npm run start
-```
+### Adding New API Services
 
-### Deployment Options
-- **Vercel**: Recommended for Next.js applications
-- **Netlify**: Alternative with good Next.js support
-- **AWS/GCP**: For enterprise deployments
+1. Create service in `src/services/`
+2. Use base API client
+3. Add proper TypeScript interfaces
+4. Include error handling
 
-## 🔮 Future Enhancements
+## 🔧 Best Practices
 
-### Planned Features
-- **Backend Integration**: Connect to your Express.js backend
-- **Payment Processing**: Stripe integration for checkout
-- **User Reviews**: Product rating and review system
-- **Inventory Management**: Real-time stock updates
-- **Analytics**: User behavior tracking and insights
-- **Multi-language**: Internationalization support
-- **Dark Mode**: Theme switching capability
+### Component Development
 
-### Performance Optimizations
-- **Image Optimization**: Next.js Image component with lazy loading
-- **Code Splitting**: Dynamic imports for better performance
-- **Caching**: Service worker for offline functionality
-- **SEO**: Meta tags and structured data
+- Use theme tokens for all styling
+- Implement proper TypeScript interfaces
+- Include loading and error states
+- Add proper accessibility features
+- Use consistent naming conventions
+
+### State Management
+
+- Use async thunks for API calls
+- Implement proper loading states
+- Handle errors gracefully
+- Use optimistic updates where appropriate
+- Maintain clean state structure
+
+### API Integration
+
+- Use service layer abstraction
+- Implement proper error handling
+- Add request/response interceptors
+- Use TypeScript for type safety
+- Handle loading states properly
+
+### Search & Discovery
+
+- Implement debounced search
+- Provide clear search feedback
+- Use progressive enhancement
+- Optimize for performance
+- Track search analytics
+
+### Payment Processing
+
+- Implement proper error handling
+- Use secure payment methods
+- Provide clear payment feedback
+- Handle edge cases gracefully
+- Follow PCI compliance guidelines
+
+## 📚 Additional Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Stripe Documentation](https://stripe.com/docs)
 
 ## 🤝 Contributing
 
-### Development Guidelines
-1. **Code Style**: Follow ESLint configuration
-2. **TypeScript**: Use strict typing for all components
-3. **Component Structure**: Follow established patterns
-4. **Testing**: Add tests for new features
-5. **Documentation**: Update README for significant changes
-
-### Pull Request Process
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+1. Follow the established architecture patterns
+2. Use theme tokens for styling
+3. Implement proper TypeScript interfaces
+4. Add comprehensive error handling
+5. Include loading states
+6. Follow accessibility guidelines
+7. Add proper documentation
+8. Test thoroughly before submitting
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-### Common Issues
-- **Build Errors**: Check Node.js version and dependencies
-- **Styling Issues**: Verify TailwindCSS configuration
-- **State Management**: Check Redux DevTools for debugging
-
-### Getting Help
-- Check existing issues in the repository
-- Create a new issue with detailed description
-- Include error messages and reproduction steps
-
-## 🙏 Acknowledgments
-
-- **Next.js Team**: For the amazing framework
-- **Redux Team**: For state management solutions
-- **TailwindCSS**: For the utility-first CSS framework
-- **Lucide**: For beautiful icon set
-
----
-
-**Built with ❤️ using modern web technologies**
+This project is licensed under the MIT License.

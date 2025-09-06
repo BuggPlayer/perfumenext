@@ -89,7 +89,7 @@ const ProfilePage: React.FC = () => {
             <Card>
               <CardHeader className="text-center">
                 <div className="relative mx-auto mb-4">
-                  <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
                     {user.avatar ? (
                       <img 
                         src={user.avatar} 
@@ -97,11 +97,11 @@ const ProfilePage: React.FC = () => {
                         className="w-24 h-24 rounded-full object-cover"
                       />
                     ) : (
-                      <User className="w-12 h-12 text-yellow-600" />
+                      <User className="w-12 h-12 text-primary-600" />
                     )}
                   </div>
                   {isEditing && (
-                    <button className="absolute bottom-0 right-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-black hover:bg-yellow-600 transition-colors">
+                    <button className="absolute bottom-0 right-0 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-black hover:bg-primary-600 transition-colors">
                       <Camera className="w-4 h-4" />
                     </button>
                   )}
@@ -212,7 +212,7 @@ const ProfilePage: React.FC = () => {
                       onChange={(e) => handleInputChange('bio', e.target.value)}
                       disabled={!isEditing}
                       rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
                     />
                   </div>
                 </div>

@@ -69,7 +69,7 @@ const ForgotPasswordPage: React.FC = () => {
                   Didn't receive the email? Check your spam folder or{' '}
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-yellow-600 hover:text-yellow-500 font-medium"
+                    className="text-primary-600 hover:text-primary-500 font-medium"
                   >
                     try again
                   </button>
@@ -101,7 +101,7 @@ const ForgotPasswordPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
-            <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
               <span className="text-black font-bold text-xl">P</span>
             </div>
           </div>
@@ -146,7 +146,7 @@ const ForgotPasswordPage: React.FC = () => {
             <div className="mt-6 text-center">
               <Link 
                 href="/auth/signin" 
-                className="text-sm font-medium text-yellow-600 hover:text-yellow-500"
+                className="text-sm font-medium text-primary-600 hover:text-primary-500"
               >
                 ← Back to Sign In
               </Link>

@@ -145,7 +145,7 @@ const OrdersPage: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center">
-            <Package className="w-8 h-8 mr-3 text-yellow-600" />
+            <Package className="w-8 h-8 mr-3 text-primary-600" />
             My Orders
           </h1>
           <p className="text-gray-600">Track your orders and view order history</p>

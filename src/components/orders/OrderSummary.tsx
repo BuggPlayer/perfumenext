@@ -35,7 +35,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
     return (
       <div className={`bg-white rounded-lg border border-gray-200 p-4 ${className}`}>
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <ShoppingBag className="w-5 h-5 mr-2 text-yellow-600" />
+          <ShoppingBag className="w-5 h-5 mr-2 text-primary-600" />
           Order Summary
         </h3>
         
@@ -75,7 +75,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
           </div>
           <div className="flex justify-between font-semibold text-lg border-t border-gray-200 pt-2">
             <span>Total</span>
-            <span className="text-yellow-600">{formatPrice(total)}</span>
+            <span className="text-primary-600">{formatPrice(total)}</span>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
   return (
     <div className={`bg-white rounded-lg border border-gray-200 p-6 ${className}`}>
       <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-        <ShoppingBag className="w-6 h-6 mr-3 text-yellow-600" />
+        <ShoppingBag className="w-6 h-6 mr-3 text-primary-600" />
         Order Summary
       </h3>
       
@@ -127,7 +127,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
         </div>
         <div className="flex justify-between font-bold text-xl border-t border-gray-200 pt-3">
           <span>Total</span>
-          <span className="text-yellow-600">{formatPrice(total)}</span>
+          <span className="text-primary-600">{formatPrice(total)}</span>
         </div>
       </div>
     </div>

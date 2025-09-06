@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from './productSlice';
 
 export interface OrderItem {
@@ -43,6 +43,24 @@ const initialState: OrderState = {
   error: null,
 };
 
+// Simulated thunks
+export const fetchOrders = createAsyncThunk<Order[]>(
+  'orders/fetchAll',
+  async () => {
+    await new Promise(r => setTimeout(r, 300));
+    return [];
+  }
+);
+
+export const createOrder = createAsyncThunk<Order, Omit<Order, 'id' | 'createdAt' | 'updatedAt'>>(
+  'orders/create',
+  async (payload) => {
+    await new Promise(r => setTimeout(r, 500));
+    const now = new Date().toISOString();
+    return { ...payload, id: Math.random().toString(36).slice(2), createdAt: now, updatedAt: now } as Order;
+  }
+);
+
 const orderSlice = createSlice({
   name: 'orders',
   initialState,
@@ -75,6 +93,34 @@ const orderSlice = createSlice({
       state.error = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchOrders.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchOrders.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.orders = action.payload;
+      })
+      .addCase(fetchOrders.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'Failed to load orders';
+      })
+      .addCase(createOrder.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(createOrder.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.orders.unshift(action.payload);
+        state.currentOrder = action.payload;
+      })
+      .addCase(createOrder.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'Order creation failed';
+      });
+  }
 });
 
 export const { 

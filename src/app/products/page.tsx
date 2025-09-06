@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { setProducts, setFilters, applyFilters } from '@/store/slices/productSlice';
-import { demoProducts, categories, brands } from '@/data/demoData';
+import { setFilters, applyFilters, fetchProducts } from '@/store/slices/productSlice';
+import { categories, brands } from '@/data/demoData';
 import Layout from '@/components/layout/Layout';
 import ProductGrid from '@/components/products/ProductGrid';
 import ProductFilters from '@/components/products/ProductFilters';
@@ -15,14 +15,14 @@ const ProductsPage: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    dispatch(setProducts(demoProducts));
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(applyFilters());
   }, [filters, dispatch]);
 
-  const handleFilterChange = (filterType: string, value: string | number | [number, number]) => {
+  const handleFilterChange = (filterType: string, value: string | number | [number, number] | boolean) => {
     dispatch(setFilters({ [filterType]: value }));
   };
 
@@ -47,6 +47,7 @@ const ProductsPage: React.FC = () => {
       <div className="bg-gray-50 min-h-screen">
         <div className="container mx-auto px-4 py-8">
           {/* Page Header */}
+    
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">All Products</h1>
             <p className="text-gray-600">Discover our complete collection of premium fragrances</p>
@@ -55,15 +56,23 @@ const ProductsPage: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Filters Sidebar */}
             <ProductFilters
-              filters={filters}
-              onFilterChange={handleFilterChange}
+              filters={{
+                category: filters.category,
+                brand: filters.brand,
+                priceRange: filters.priceRange,
+                fragranceNotes: [],
+                inStock: false,
+                rating: filters.rating,
+              }}
+              onFiltersChange={(next) => {
+                if ('category' in next) handleFilterChange('category', next.category);
+                if ('brand' in next) handleFilterChange('brand', next.brand);
+                if ('priceRange' in next) handleFilterChange('priceRange', next.priceRange as [number, number]);
+                if ('rating' in next) handleFilterChange('rating', next.rating as number);
+                if ('inStock' in next) handleFilterChange('inStock', next.inStock as boolean);
+              }}
               onClearFilters={clearFilters}
-              categories={categories}
-              brands={brands}
-              searchTerm={searchTerm}
-              onSearchChange={setSearchTerm}
-              showFilters={showFilters}
-              onToggleFilters={() => setShowFilters(!showFilters)}
+              totalProducts={filteredBySearch.length}
             />
 
             {/* Products Grid */}
@@ -71,7 +80,7 @@ const ProductsPage: React.FC = () => {
               {/* Results Count */}
               <div className="mb-6">
                 <p className="text-gray-600">
-                  Showing {filteredBySearch.length} of {demoProducts.length} products
+                  Showing {filteredBySearch.length} products
                 </p>
               </div>
 

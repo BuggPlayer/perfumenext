@@ -81,7 +81,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 key={index}
                 onClick={() => setSelectedImage(index)}
                 className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
-                  selectedImage === index ? 'border-yellow-500' : 'border-gray-200'
+                  selectedImage === index ? 'border-primary-500' : 'border-gray-200'
                 }`}
               >
                 <ProductImage
@@ -107,7 +107,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                 <Star
                   key={i}
                   className={`w-5 h-5 ${
-                    i < Math.floor(product.rating) ? 'text-yellow-500 fill-current' : 'text-gray-300'
+                    i < Math.floor(product.rating) ? 'text-primary-500 fill-current' : 'text-gray-300'
                   }`}
                 />
               ))}
@@ -228,7 +228,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {features.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-3 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600">
+                <div className="w-12 h-12 mx-auto mb-3 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
                   {feature.icon}
                 </div>
                 <h4 className="font-medium text-gray-900 mb-1">{feature.title}</h4>

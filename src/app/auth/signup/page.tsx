@@ -114,7 +114,7 @@ const SignUpPage: React.FC = () => {
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center">
-            <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center">
               <span className="text-black font-bold text-xl">P</span>
             </div>
           </div>
@@ -123,7 +123,7 @@ const SignUpPage: React.FC = () => {
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
-            <Link href="/auth/signin" className="font-medium text-yellow-600 hover:text-yellow-500">
+            <Link href="/auth/signin" className="font-medium text-primary-600 hover:text-primary-500">
               sign in to your existing account
             </Link>
           </p>
@@ -239,17 +239,17 @@ const SignUpPage: React.FC = () => {
                     type="checkbox"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
                 </div>
                 <div className="ml-3 text-sm">
                   <label htmlFor="terms" className="text-gray-700">
                     I agree to the{' '}
-                    <Link href="/terms" className="text-yellow-600 hover:text-yellow-500">
+                    <Link href="/terms" className="text-primary-600 hover:text-primary-500">
                       Terms and Conditions
                     </Link>{' '}
                     and{' '}
-                    <Link href="/privacy" className="text-yellow-600 hover:text-yellow-500">
+                    <Link href="/privacy" className="text-primary-600 hover:text-primary-500">
                       Privacy Policy
                     </Link>
                   </label>

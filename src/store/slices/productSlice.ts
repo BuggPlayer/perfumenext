@@ -1,4 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { demoProducts } from '@/data/demoData';
+import { productService } from '@/services/productService';
 
 export interface Product {
   id: string;
@@ -51,6 +53,37 @@ const initialState: ProductState = {
   },
 };
 
+// Thunks
+export const fetchProducts = createAsyncThunk<Product[]>(
+  'products/fetchAll',
+  async () => {
+    try {
+      const products = await productService.getProducts();
+      if (products && products.length) return products;
+      return demoProducts as unknown as Product[];
+    } catch (e) {
+      // Fallback to demo data on error
+      return demoProducts as unknown as Product[];
+    }
+  }
+);
+
+export const fetchFeaturedProducts = createAsyncThunk<Product[]>(
+  'products/fetchFeatured',
+  async () => {
+    await new Promise(r => setTimeout(r, 200));
+    return (demoProducts as unknown as Product[]).filter(p => p.featured);
+  }
+);
+
+export const fetchBestSellers = createAsyncThunk<Product[]>(
+  'products/fetchBestSellers',
+  async () => {
+    await new Promise(r => setTimeout(r, 200));
+    return (demoProducts as unknown as Product[]).filter(p => p.bestSeller);
+  }
+);
+
 const productSlice = createSlice({
   name: 'products',
   initialState,
@@ -100,6 +133,28 @@ const productSlice = createSlice({
       state.error = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.products = action.payload;
+        state.filteredProducts = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message || 'Failed to load products';
+      })
+      .addCase(fetchFeaturedProducts.fulfilled, (state, action) => {
+        state.featuredProducts = action.payload;
+      })
+      .addCase(fetchBestSellers.fulfilled, (state, action) => {
+        state.bestSellers = action.payload;
+      });
+  }
 });
 
 export const { 

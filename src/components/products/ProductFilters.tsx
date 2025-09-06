@@ -106,7 +106,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
             <Filter className="w-5 h-5 text-gray-600" />
             <span className="font-medium text-gray-900">Filters</span>
             {hasActiveFilters() && (
-              <span className="bg-yellow-500 text-black text-xs px-2 py-1 rounded-full font-bold">
+              <span className="bg-primary-500 text-black text-xs px-2 py-1 rounded-full font-bold">
                 Active
               </span>
             )}
@@ -160,7 +160,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                       value={category}
                       checked={filters.category === category}
                       onChange={(e) => handleFilterChange('category', e.target.value)}
-                      className="text-yellow-500 focus:ring-yellow-500"
+                      className="text-primary-500 focus:ring-primary-500"
                     />
                     <span className="text-sm text-gray-700">{category}</span>
                   </label>
@@ -188,7 +188,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                       value={brand}
                       checked={filters.brand === brand}
                       onChange={(e) => handleFilterChange('brand', e.target.value)}
-                      className="text-yellow-500 focus:ring-yellow-500"
+                      className="text-primary-500 focus:ring-primary-500"
                     />
                     <span className="text-sm text-gray-700">{brand}</span>
                   </label>
@@ -214,8 +214,8 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                       type="radio"
                       name="priceRange"
                       checked={filters.priceRange[0] === range.value[0] && filters.priceRange[1] === range.value[1]}
-                      onChange={() => handlePriceRangeChange(range.value)}
-                      className="text-yellow-500 focus:ring-yellow-500"
+                      onChange={() => handlePriceRangeChange([range.value[0], range.value[1]])}
+                      className="text-primary-500 focus:ring-primary-500"
                     />
                     <span className="text-sm text-gray-700">{range.label}</span>
                   </label>
@@ -241,7 +241,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                       type="checkbox"
                       checked={filters?.fragranceNotes?.includes(note)}
                       onChange={() => handleFragranceNoteToggle(note)}
-                      className="text-yellow-500 focus:ring-yellow-500 rounded"
+                      className="text-primary-500 focus:ring-primary-500 rounded"
                     />
                     <span className="text-sm text-gray-700">{note}</span>
                   </label>
@@ -267,7 +267,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                     type="checkbox"
                     checked={filters.inStock}
                     onChange={(e) => handleFilterChange('inStock', e.target.checked)}
-                    className="text-yellow-500 focus:ring-yellow-500 rounded"
+                    className="text-primary-500 focus:ring-primary-500 rounded"
                   />
                   <span className="text-sm text-gray-700">In Stock Only</span>
                 </label>
@@ -284,7 +284,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                           value={option.value}
                           checked={filters.rating === option.value}
                           onChange={(e) => handleFilterChange('rating', parseInt(e.target.value))}
-                          className="text-yellow-500 focus:ring-yellow-500"
+                          className="text-primary-500 focus:ring-primary-500"
                         />
                         <span className="text-sm text-gray-700">{option.label}</span>
                       </label>

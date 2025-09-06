@@ -72,17 +72,17 @@ const defaultThemes: Record<ThemeVariant, ThemeConfig> = {
     description: 'Luxury black and golden theme for high-end brands',
     colors: {
       primary: {
-        50: '#fefce8',
-        100: '#fef9c3',
-        200: '#fef08a',
-        300: '#fde047',
-        400: '#facc15',
-        500: '#eab308',
-        600: '#ca8a04',
-        700: '#a16207',
-        800: '#854d0e',
-        900: '#713f12',
-        950: '#422006',
+        50: '#e6c98f',
+        100: '#e6c98f',
+        200: '#e6c98f',
+        300: '#e6c98f',
+        400: '#e6c98f',
+        500: '#d2a34b',
+        600: '#c69544',
+        700: '#c69544',
+        800: '#c69544',
+        900: '#c69544',
+        950: '#c69544',
       },
       secondary: {
         50: '#f8fafc',
@@ -125,17 +125,20 @@ const defaultThemes: Record<ThemeVariant, ThemeConfig> = {
       }
     },
     cssVariables: {
-      '--color-primary': '#eab308',
-      '--color-primary-light': '#facc15',
-      '--color-primary-dark': '#ca8a04',
+      '--color-primary': '#d2a34b',
+      '--color-primary-light': '#e6c98f',
+      '--color-primary-dark': '#c69544',
       '--color-secondary': '#64748b',
       '--color-accent': '#d946ef',
       '--color-dark': '#000000',
       '--color-light': '#ffffff',
-      '--color-background': '#ffffff',
-      '--color-surface': '#f8fafc',
-      '--color-text': '#0f172a',
-      '--color-text-muted': '#64748b',
+      '--color-background': '#000000',
+      '--color-surface': '#121212',
+      '--color-text': '#ffffff',
+      '--color-text-muted': 'rgba(255, 255, 255, 0.8)',
+      '--border-primary': '#d2a34b',
+      '--border-faded': 'rgba(210, 163, 75, 0.3)',
+      '--bg-primary-transparent': 'rgba(210, 163, 75, 0.1)'
     }
   },
   elegant: {
@@ -467,6 +470,25 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     Object.entries(themeConfig.cssVariables).forEach(([property, value]) => {
       root.style.setProperty(property, value);
     });
+
+    // Sync full color scales to CSS variables used by Tailwind (primary, secondary, accent)
+    const setScale = (prefix: string, scale: ThemeColors['primary']) => {
+      root.style.setProperty(`--${prefix}-50`, scale[50]);
+      root.style.setProperty(`--${prefix}-100`, scale[100]);
+      root.style.setProperty(`--${prefix}-200`, scale[200]);
+      root.style.setProperty(`--${prefix}-300`, scale[300]);
+      root.style.setProperty(`--${prefix}-400`, scale[400]);
+      root.style.setProperty(`--${prefix}-500`, scale[500]);
+      root.style.setProperty(`--${prefix}-600`, scale[600]);
+      root.style.setProperty(`--${prefix}-700`, scale[700]);
+      root.style.setProperty(`--${prefix}-800`, scale[800]);
+      root.style.setProperty(`--${prefix}-900`, scale[900]);
+      root.style.setProperty(`--${prefix}-950`, scale[950]);
+    };
+
+    setScale('primary', themeConfig.colors.primary);
+    setScale('secondary', themeConfig.colors.secondary);
+    setScale('accent', themeConfig.colors.accent);
 
     // Apply TailwindCSS classes for dynamic colors
     root.classList.remove('theme-premium', 'theme-elegant', 'theme-modern', 'theme-classic', 'theme-custom');

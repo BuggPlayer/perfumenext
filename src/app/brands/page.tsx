@@ -29,7 +29,7 @@ const BrandsPage: React.FC = () => {
   }, [selectedBrand, dispatch]);
 
   const brandIcons = {
-    'Chanel': <Crown className="w-8 h-8 text-yellow-500" />,
+    'Chanel': <Crown className="w-8 h-8 text-primary-500" />,
     'Dior': <Award className="w-8 h-8 text-blue-500" />,
     'Lancôme': <Heart className="w-8 h-8 text-pink-500" />,
     'Yves Saint Laurent': <Star className="w-8 h-8 text-red-500" />,
@@ -107,7 +107,7 @@ const BrandsPage: React.FC = () => {
                     </p>
                     {brandProducts.length > 0 && (
                       <div className="flex items-center space-x-2 text-sm">
-                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                        <Star className="w-4 h-4 text-primary-400 fill-current" />
                         <span className="text-gray-700">{avgRating} average rating</span>
                       </div>
                     )}

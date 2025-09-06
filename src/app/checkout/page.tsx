@@ -162,7 +162,7 @@ const CheckoutPage: React.FC = () => {
               {/* Shipping Information */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                  <Truck className="w-5 h-5 mr-2 text-yellow-600" />
+                  <Truck className="w-5 h-5 mr-2 text-primary-600" />
                   Shipping Information
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -238,7 +238,7 @@ const CheckoutPage: React.FC = () => {
               {/* Payment Information */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                  <CreditCard className="w-5 h-5 mr-2 text-yellow-600" />
+                  <CreditCard className="w-5 h-5 mr-2 text-primary-600" />
                   Payment Information
                 </h2>
                 <div className="space-y-4">
