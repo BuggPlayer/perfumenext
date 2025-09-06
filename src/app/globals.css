@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary, #ca8a04);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark, #eab308);
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Theme-specific CSS variables */
+:root {
+  --color-primary: #eab308;
+  --color-primary-light: #facc15;
+  --color-primary-dark: #ca8a04;
+  --color-secondary: #64748b;
+  --color-accent: #d946ef;
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+}
+
+/* Premium theme enhancements */
+.bg-gradient-premium {
+  background: linear-gradient(135deg, var(--color-dark) 0%, #1e293b 50%, var(--color-primary) 100%);
+}
+
+.text-gradient-golden {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient-golden {
+  border-image: linear-gradient(135deg, var(--color-primary-light), var(--color-primary), var(--color-primary-dark)) 1;
+}
+
+/* Theme-specific utility classes */
+.theme-premium {
+  --color-primary: #eab308;
+  --color-primary-light: #facc15;
+  --color-primary-dark: #ca8a04;
+}
+
+.theme-elegant {
+  --color-primary: #a855f7;
+  --color-primary-light: #c084fc;
+  --color-primary-dark: #7c3aed;
+}
+
+.theme-modern {
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #1d4ed8;
+}
+
+.theme-classic {
+  --color-primary: #ef4444;
+  --color-primary-light: #f87171;
+  --color-primary-dark: #b91c1c;
+}
+
+.theme-custom {
+  --color-primary: #eab308;
+  --color-primary-light: #facc15;
+  --color-primary-dark: #ca8a04;
 }
