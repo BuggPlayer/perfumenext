@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Experience the world's finest fragrances from luxury brands. 
+            Experience the world’s finest fragrances from luxury brands. 
             Find your perfect perfume and make every moment unforgettable.
           </p>
           

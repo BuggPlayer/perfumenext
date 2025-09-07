@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "PerfumeLux - Premium Fragrances",
-  description: "Discover the world's finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.",
+  description: "Discover the world’s finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.",
 };
 
 export default function RootLayout({

@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               <span className="text-xl font-bold text-primary-400">PerfumeLux</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Discover the world's finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.
+              Discover the world’s finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">

@@ -10,7 +10,7 @@ const slides = [
     titleTop: 'Discover Your',
     titleAccent: 'Signature Scent',
     subtitle:
-      "Experience the world's finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.",
+      'Experience the world’s finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.',
     ctaPrimary: { href: '/products', label: 'Shop Now' },
     ctaSecondary: { href: '/categories', label: 'Explore Categories' },
     bgClass: 'from-black via-gray-900 to-gray-800',
