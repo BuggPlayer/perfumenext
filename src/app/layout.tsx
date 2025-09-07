@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({ subsets: ["latin"], weight: ["300","400","700","900"] });
 
 export const metadata: Metadata = {
   title: "PerfumeLux - Premium Fragrances",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[var(--color-background)] text-[var(--color-text)]`}>
+      <body className={`${lato.className} bg-[var(--color-background)] text-[var(--color-text)]`}>
         <Providers>
           {children}
         </Providers>

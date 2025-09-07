@@ -7,18 +7,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
-  .animation-delay-1000 {
-    animation-delay: 1s;
-  }
-  
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
 
   /* Hide scrollbar for modern horizontal carousels */
   .no-scrollbar::-webkit-scrollbar {
@@ -55,75 +43,68 @@
 
 /* Theme-specific CSS variables */
 :root {
-  /* Fallbacks for Tailwind primary scale so first paint has colors */
-  --primary-50:  #fefce8;
-  --primary-100: #fef9c3;
-  --primary-200: #fef08a;
-  --primary-300: #fde047;
-  --primary-400: #facc15;
-  --primary-500: #eab308;
-  --primary-600: #ca8a04;
-  --primary-700: #a16207;
-  --primary-800: #854d0e;
-  --primary-900: #713f12;
-  --primary-950: #422006;
+  /* Static Premium Black & Gold theme */
+  --primary-50:  #e6c98f;
+  --primary-100: #e6c98f;
+  --primary-200: #e6c98f;
+  --primary-300: #e6c98f;
+  --primary-400: #e6c98f;
+  --primary-500: #d2a34b; /* Gold */
+  --primary-600: #c69544; /* Darker gold */
+  --primary-700: #c69544;
+  --primary-800: #c69544;
+  --primary-900: #c69544;
+  --primary-950: #c69544;
 
-  --color-primary: #eab308;
-  --color-primary-light: #facc15;
-  --color-primary-dark: #ca8a04;
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-200: #e2e8f0;
+  --secondary-300: #cbd5e1;
+  --secondary-400: #94a3b8;
+  --secondary-500: #64748b;
+  --secondary-600: #475569;
+  --secondary-700: #334155;
+  --secondary-800: #1e293b;
+  --secondary-900: #0f172a;
+  --secondary-950: #000000;
+
+  --accent-50: #fdf4ff;
+  --accent-100: #fae8ff;
+  --accent-200: #f5d0fe;
+  --accent-300: #f0abfc;
+  --accent-400: #e879f9;
+  --accent-500: #d946ef;
+  --accent-600: #c026d3;
+  --accent-700: #a21caf;
+  --accent-800: #86198f;
+  --accent-900: #701a75;
+  --accent-950: #4a044e;
+
+  --dark-50: #f8fafc;
+  --dark-100: #f1f5f9;
+  --dark-200: #e2e8f0;
+  --dark-300: #cbd5e1;
+  --dark-400: #94a3b8;
+  --dark-500: #64748b;
+  --dark-600: #475569;
+  --dark-700: #334155;
+  --dark-800: #1e293b;
+  --dark-900: #0f172a;
+  --dark-950: #000000;
+
   --color-secondary: #64748b;
   --color-accent: #d946ef;
   --color-dark: #000000;
   --color-light: #ffffff;
+  
+  /* Clean Light palette while keeping gold accents */
   --color-background: #ffffff;
   --color-surface: #f8fafc;
   --color-text: #0f172a;
   --color-text-muted: #64748b;
+  --border-primary: #d2a34b;
+  --border-faded: rgba(210, 163, 75, 0.3);
+  --bg-primary-transparent: rgba(210, 163, 75, 0.1);
+ 
 }
 
-/* Premium theme enhancements */
-.bg-gradient-premium {
-  background: linear-gradient(135deg, var(--color-dark) 0%, #1e293b 50%, var(--color-primary) 100%);
-}
-
-.text-gradient-golden {
-  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.border-gradient-golden {
-  border-image: linear-gradient(135deg, var(--color-primary-light), var(--color-primary), var(--color-primary-dark)) 1;
-}
-
-/* Theme-specific utility classes */
-.theme-premium {
-  --color-primary: #eab308;
-  --color-primary-light: #facc15;
-  --color-primary-dark: #ca8a04;
-}
-
-.theme-elegant {
-  --color-primary: #a855f7;
-  --color-primary-light: #c084fc;
-  --color-primary-dark: #7c3aed;
-}
-
-.theme-modern {
-  --color-primary: #3b82f6;
-  --color-primary-light: #60a5fa;
-  --color-primary-dark: #1d4ed8;
-}
-
-.theme-classic {
-  --color-primary: #ef4444;
-  --color-primary-light: #f87171;
-  --color-primary-dark: #b91c1c;
-}
-
-.theme-custom {
-  --color-primary: #eab308;
-  --color-primary-light: #facc15;
-  --color-primary-dark: #ca8a04;
-}

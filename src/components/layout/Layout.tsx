@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import CartSidebar from '../cart/CartSidebar';
-import ThemeSwitcher from '../ui/ThemeSwitcher';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,7 +16,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
       <Footer />
       <CartSidebar />
-      <ThemeSwitcher />
     </div>
   );
 };

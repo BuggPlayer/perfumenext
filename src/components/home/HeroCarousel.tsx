@@ -42,27 +42,27 @@ const HeroCarousel: React.FC = () => {
         <div className="absolute inset-0 bg-primary-500/5"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 py-10 md:py-12 lg:py-16">
+      <div className="relative w-full py-8 md:py-12 lg:py-16">
         <Carousel
           ariaLabel="Hero carousel"
           autoplayMs={6000}
           pauseOnHover
           showProgress
           showArrows
-          className=""
-          itemWidthClassName="w-full"
+          className="w-full"
+          itemWidthClassName="w-[100vw]"
           itemClassName=""
         >
           {slides.map((slide, idx) => (
             <div
               key={idx}
-              className={`relative rounded-2xl overflow-hidden ring-1 ring-white/10 bg-gradient-to-br ${slide.bgClass.replace('black','[var(--color-dark)]')}`}
+              className={`relative overflow-hidden bg-gradient-to-br ${slide.bgClass.replace('black','[var(--color-dark)]')}`}
             >
               {/* Decorative blobs */}
               <div className="absolute top-10 -right-8 w-40 h-40 bg-primary-500/10 rounded-full blur-3xl"></div>
               <div className="absolute -bottom-8 -left-8 w-56 h-56 bg-primary-400/10 rounded-full blur-3xl"></div>
 
-              <div className="px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-28">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 min-h-[320px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[600px] flex items-center">
                 <div className="max-w-3xl">
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                     <span className="text-white">{slide.titleTop}</span>

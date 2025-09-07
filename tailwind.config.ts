@@ -22,19 +22,26 @@ const config: Config = {
           900: 'var(--primary-900)',
           950: 'var(--primary-950)',
         },
-        dark: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#000000',
+        // semantic shortcuts
+        background: {
+          DEFAULT: 'var(--color-background)',
+          secondary: 'var(--color-surface)'
+        },
+        textColor: {
+          primary: 'var(--color-primary)',
+          secondary: 'var(--color-light)',
+          muted: 'var(--color-text-muted)'
+        },
+        borderColor: {
+          primary: 'var(--border-primary)',
+          faded: 'var(--border-faded)'
         }
+      },
+      backgroundColor: {
+        'primary-transparent': 'var(--bg-primary-transparent)'
+      },
+      fontFamily: {
+        primary: ['Lato', 'sans-serif']
       }
     },
   },
