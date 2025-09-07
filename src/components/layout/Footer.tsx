@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[var(--color-dark)] text-[var(--color-light)]">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -18,20 +18,20 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-xl font-bold text-primary-400">PerfumeLux</span>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">
               Discover the world’s finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
+              <a href="#" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -39,30 +39,30 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-[var(--color-light)]">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/products" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/categories" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Categories
                 </Link>
               </li>
               <li>
-                <Link href="/brands" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/brands" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Brands
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/about" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/contact" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Contact
                 </Link>
               </li>
@@ -71,25 +71,25 @@ const Footer: React.FC = () => {
 
           {/* Account */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Account</h3>
+            <h3 className="text-lg font-semibold text-[var(--color-light)]">Account</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/dashboard" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/dashboard" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link href="/orders" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/orders" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Order History
                 </Link>
               </li>
               <li>
-                <Link href="/wishlist" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/wishlist" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Wishlist
                 </Link>
               </li>
               <li>
-                <Link href="/profile" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/profile" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Profile
                 </Link>
               </li>
@@ -98,30 +98,30 @@ const Footer: React.FC = () => {
 
           {/* Customer Service */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Customer Service</h3>
+            <h3 className="text-lg font-semibold text-[var(--color-light)]">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/shipping" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/shipping" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Shipping & Returns
                 </Link>
               </li>
               <li>
-                <Link href="/size-guide" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/size-guide" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Size Guide
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/faq" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/privacy" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-gray-300 hover:text-primary-400 transition-colors text-sm">
+                <Link href="/terms" className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors text-sm">
                   Terms of Service
                 </Link>
               </li>
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 bg-[color-mix(in_oklab,var(--color-dark)_85%,#fff_15%)] border border-gray-700 rounded-lg text-[var(--color-light)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
               <button className="px-6 py-2 bg-primary-500 text-black font-medium rounded-lg hover:bg-primary-600 transition-colors">
                 Subscribe

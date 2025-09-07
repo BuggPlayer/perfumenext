@@ -23,7 +23,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-black text-white shadow-lg">
+    <header className="shadow-lg bg-[var(--color-dark)] text-[var(--color-light)]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-primary-400 transition-colors font-medium"
+                className="text-[var(--color-text-muted)] hover:text-primary-400 transition-colors font-medium"
               >
                 {item.name}
               </Link>
@@ -50,11 +50,11 @@ const Header: React.FC = () => {
           {/* Search Bar */}
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--color-text-muted)] w-4 h-4" />
               <input
                 type="text"
                 placeholder="Search fragrances..."
-                className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 bg-[color-mix(in_oklab,var(--color-dark)_85%,#fff_15%)] border border-[var(--border-faded)] rounded-lg text-[var(--color-light)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
             {/* Wishlist */}
-            <Link href="/wishlist" className="relative p-2 text-gray-300 hover:text-primary-400 transition-colors">
+            <Link href="/wishlist" className="relative p-2 text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
               <Heart className="w-5 h-5" />
               {wishlistItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-primary-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
             </Link>
 
             {/* Cart */}
-            <Link href="/checkout" className="relative p-2 text-gray-300 hover:text-primary-400 transition-colors">
+            <Link href="/checkout" className="relative p-2 text-[var(--color-text-muted)] hover:text-primary-400 transition-colors">
               <ShoppingCart className="w-5 h-5" />
               {cartItems > 0 && (
                 <span className="absolute -top-1 -right-1 bg-primary-500 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-300 hover:text-primary-400 transition-colors"
+              className="md:hidden p-2 text-[var(--color-text-muted)] hover:text-primary-400 transition-colors"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -117,13 +117,13 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900 border-t border-gray-800">
+        <div className="md:hidden bg-[var(--color-dark)] border-t border-[var(--border-faded)]">
           <div className="px-4 py-2 space-y-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-gray-300 hover:text-primary-400 hover:bg-gray-800 rounded-md transition-colors"
+                className="block px-3 py-2 text-[var(--color-text-muted)] hover:text-primary-400 hover:bg-[color-mix(in_oklab,var(--color-dark)_85%,#fff_15%)] rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

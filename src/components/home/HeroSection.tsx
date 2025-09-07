@@ -4,7 +4,7 @@ import Button from '../ui/Button';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[var(--color-dark)] via-gray-900 to-[var(--color-dark)] text-[var(--color-light)] overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         {/* subtle primary tinted overlay instead of hardcoded yellow svg */}
@@ -15,7 +15,7 @@ const HeroSection: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-white">Discover Your</span>
+            <span className="text-[var(--color-light)]">Discover Your</span>
             <br />
             <span className="text-primary-400 bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">
               Signature Scent

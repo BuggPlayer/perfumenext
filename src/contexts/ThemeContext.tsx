@@ -460,12 +460,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       setCurrentTheme(savedTheme);
       setThemeConfig(defaultThemes[savedTheme]);
     }
+    console.log('[ThemeProvider] loaded savedTheme:', savedTheme || 'none');
   }, []);
 
   // Apply theme to CSS variables
   useEffect(() => {
     const root = document.documentElement;
-    
+    console.log('[ThemeProvider] applying theme', { currentTheme, themeName: themeConfig.name });
     // Apply CSS variables
     Object.entries(themeConfig.cssVariables).forEach(([property, value]) => {
       root.style.setProperty(property, value);
@@ -493,15 +494,22 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     // Apply TailwindCSS classes for dynamic colors
     root.classList.remove('theme-premium', 'theme-elegant', 'theme-modern', 'theme-classic', 'theme-custom');
     root.classList.add(`theme-${currentTheme}`);
+    console.log('[ThemeProvider] applied root class & vars', {
+      rootClass: root.className,
+      primary500: getComputedStyle(root).getPropertyValue('--primary-500').trim(),
+      colorPrimary: getComputedStyle(root).getPropertyValue('--color-primary').trim(),
+    });
   }, [themeConfig, currentTheme]);
 
   const setTheme = (theme: ThemeVariant) => {
+    console.log('[ThemeProvider.setTheme] called with:', theme);
     setCurrentTheme(theme);
     setThemeConfig(defaultThemes[theme]);
     localStorage.setItem('theme', theme);
   };
 
   const updateCustomTheme = (colors: Partial<ThemeColors>) => {
+    console.log('[ThemeProvider.updateCustomTheme] colors:', colors);
     const updatedConfig = {
       ...defaultThemes.custom,
       colors: { ...defaultThemes.custom.colors, ...colors },
@@ -521,6 +529,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   const resetTheme = () => {
+    console.log('[ThemeProvider.resetTheme] resetting to premium');
     setTheme('premium');
   };
 

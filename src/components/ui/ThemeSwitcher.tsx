@@ -44,6 +44,7 @@ const ThemeSwitcher: React.FC = () => {
   ];
 
   const handleThemeChange = (theme: ThemeVariant) => {
+    console.log('[ThemeSwitcher] selecting theme:', theme);
     setTheme(theme);
     setIsOpen(false);
   };

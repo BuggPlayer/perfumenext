@@ -10,7 +10,7 @@ const Card: React.FC<CardProps> = ({ children, className, ...props }) => {
   return (
     <div
       className={cn(
-        'bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-200',
+        'bg-[var(--color-surface)] border border-[var(--border-faded)] rounded-xl shadow-sm hover:shadow-lg transition-all duration-200',
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ children, className, ...props }) => {
 
 const CardHeader: React.FC<CardProps> = ({ children, className }) => {
   return (
-    <div className={cn('px-6 py-4 border-b border-gray-100', className)}>
+    <div className={cn('px-6 py-4 border-b border-[var(--border-faded)]', className)}>
       {children}
     </div>
   );
@@ -54,7 +54,7 @@ const CardContent: React.FC<CardProps> = ({ children, className }) => {
 
 const CardFooter: React.FC<CardProps> = ({ children, className }) => {
   return (
-    <div className={cn('px-6 py-4 border-t border-gray-100', className)}>
+    <div className={cn('px-6 py-4 border-t border-[var(--border-faded)]', className)}>
       {children}
     </div>
   );
