@@ -1,12 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { demoProducts } from '@/data/demoData';
 import ProductCard from '../products/ProductCard';
 import Button from '../ui/Button';
+import { Product } from '@/store/slices/productSlice';
 // import Carousel from '../ui/Carousel';
 
-const FeaturedProducts: React.FC = () => {
-  const featuredProducts = demoProducts.filter(product => product.featured).slice(0, 8);
+interface FeaturedProductsProps {
+  products?: Product[];
+  isLoading?: boolean;
+}
+
+const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products = [], isLoading }) => {
+  console.log('featuredProducts', products);
+  // const featuredProducts = (products?.length ? products : []).filter(p => p.featured).slice(0, 8);
 
   return (
     <section className="py-16 bg-white">
@@ -24,11 +30,13 @@ const FeaturedProducts: React.FC = () => {
                </div>
         
         {/* Carousel removed per request; showing a responsive 8-product grid */}
-        <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {isLoading ? null : (
+          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            {products?.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

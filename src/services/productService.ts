@@ -14,7 +14,7 @@ export interface ProductQuery {
 
 export const productService = {
   async getProducts(query?: ProductQuery): Promise<Product[]> {
-    
+
     const params: Record<string, unknown> = { ...query };
     if (query?.sort) {
       params.sortField = query.sort.field;
@@ -22,10 +22,12 @@ export const productService = {
       delete params.sort;
     }
 
-    const res = await api.get('/api/products', { params });
+    const res = await api.get('/api/home/get-products');
+    console.log('res-----', res?.data?.products);
+    return res?.data?.products as Product[];
     // Adjust mapping according to backend shape if needed
-    const data = (res.data as { data?: Product[] } | Product[]);
-    return Array.isArray(data) ? data as Product[] : (data.data ?? []);
+    // const data = (res.data. as { data?: Product[] } | Product[]);
+    // return Array.isArray(data) ? data as Product[] : (data.data.products ?? []);
   },
 
   async getProductById(id: string): Promise<Product> {

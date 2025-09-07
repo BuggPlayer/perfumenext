@@ -13,8 +13,9 @@ const ProductsPage: React.FC = () => {
   const { filteredProducts, filters } = useAppSelector(state => state.products);
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
-
+console.log('filteredProducts', filteredProducts);
   useEffect(() => {
+    console.log('fetching products');
     dispatch(fetchProducts());
   }, [dispatch]);
 

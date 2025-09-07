@@ -103,7 +103,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Search Bar */}
-        <div className="lg:hidden pb-0">
+        {/* <div className="lg:hidden pb-0">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textColor-muted w-4 h-4" />
             <input
@@ -112,18 +112,18 @@ const Header: React.FC = () => {
               className="w-full pl-10 pr-4 py-2 bg-background-secondary border border-borderColor-faded rounded-lg text-textColor-secondary placeholder:text-textColor-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-borderColor-faded">
+        <div className="md:hidden bg-[var(--color-dark)] border-t border-borderColor-faded">
           <div className="px-4 py-2 space-y-1">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-[var(--color-text)] hover:text-primary-600 hover:bg-background-secondary rounded-md transition-colors"
+                className="block px-3 py-2 text-[var(--color-light)]/80 hover:text-primary-500 hover:bg-[color-mix(in_oklab,var(--color-dark)_85%,#fff_15%)] rounded-md transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
