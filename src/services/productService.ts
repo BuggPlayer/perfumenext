@@ -14,6 +14,7 @@ export interface ProductQuery {
 
 export const productService = {
   async getProducts(query?: ProductQuery): Promise<Product[]> {
+    
     const params: Record<string, unknown> = { ...query };
     if (query?.sort) {
       params.sortField = query.sort.field;

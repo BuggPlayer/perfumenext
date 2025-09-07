@@ -116,12 +116,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         <p className="text-xs text-[var(--color-text-muted)] mb-3">{product.size}</p>
         
         {/* Action Buttons */}
-        <div className="space-y-2">
+        <div className="flex  gap-4">
           <Button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="w-full"
-            size="sm"
+             variant="outline"
+            // className="w-full"
+            // size="sm"
+            //  variant="secondary"
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             {product.inStock ? 'Add to Cart' : 'Out of Stock'}
@@ -130,8 +132,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           <Link href={`/products/${product.id}`}>
             <Button
               variant="outline"
-              className="w-full"
-              size="sm"
+              // className="w-full"
+              // size="sm"
             >
               View Details
             </Button>

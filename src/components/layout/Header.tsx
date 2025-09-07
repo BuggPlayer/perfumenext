@@ -103,7 +103,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Search Bar */}
-        <div className="lg:hidden pb-4">
+        <div className="lg:hidden pb-0">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textColor-muted w-4 h-4" />
             <input

@@ -42,7 +42,7 @@ const HeroCarousel: React.FC = () => {
         <div className="absolute inset-0 bg-primary-500/5"></div>
       </div>
 
-      <div className="relative w-full py-8 md:py-12 lg:py-16">
+      <div className="relative w-full pt-4 md:pt-8 lg:pt-12 pb-8 md:pb-12 lg:pb-16">
         <Carousel
           ariaLabel="Hero carousel"
           autoplayMs={6000}
