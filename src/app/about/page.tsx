@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { Award, Users, Globe, Heart, Shield, Truck } from 'lucide-react';
+import Link from 'next/link';
 
 const AboutPage: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const AboutPage: React.FC = () => {
               About PerfumeLux
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We are passionate about bringing the world's finest fragrances to discerning customers 
+              We are passionate about bringing the world’s finest fragrances to discerning customers 
               who appreciate luxury, quality, and the art of perfumery.
             </p>
           </div>
@@ -110,7 +111,7 @@ const AboutPage: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Our Story</h2>
             <div className="max-w-4xl mx-auto text-gray-600 leading-relaxed space-y-4">
               <p>
-                PerfumeLux was founded with a simple yet powerful vision: to make the world's most 
+                PerfumeLux was founded with a simple yet powerful vision: to make the world’s most 
                 prestigious fragrances accessible to discerning customers who appreciate the art of perfumery. 
                 What began as a small boutique has grown into a trusted destination for luxury fragrances.
               </p>
@@ -123,7 +124,7 @@ const AboutPage: React.FC = () => {
               </p>
               
               <p>
-                Today, we continue to build relationships with the world's most respected fragrance 
+                Today, we continue to build relationships with the world’s most respected fragrance 
                 houses, ensuring that our customers have access to authentic, high-quality products. 
                 Our team of fragrance experts is dedicated to helping you discover scents that resonate 
                 with your personality and lifestyle.
@@ -131,7 +132,7 @@ const AboutPage: React.FC = () => {
               
               <p>
                 We believe that a great fragrance has the power to transform not just how you smell, 
-                but how you feel. It's an invisible accessory that speaks volumes about your taste, 
+                but how you feel. It’s an invisible accessory that speaks volumes about your taste, 
                 confidence, and appreciation for the finer things in life.
               </p>
             </div>
@@ -168,12 +169,12 @@ const AboutPage: React.FC = () => {
             <p className="text-gray-600 mb-6">
               Explore our collection and find the perfect fragrance that speaks to you.
             </p>
-            <a
+            <Link
               href="/products"
               className="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
             >
               Shop Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>
