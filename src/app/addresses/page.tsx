@@ -5,7 +5,7 @@ import { useAppSelector } from '@/store/hooks';
 import { MapPin, Plus, Edit, Trash2, Home, Building, Map } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
+import {Card} from '@/components/ui/Card';
 import Modal from '@/components/ui/Modal';
 import AddressForm, { Address } from '@/components/forms/AddressForm';
 import { Address as AddressType } from '@/components/forms/AddressForm';
