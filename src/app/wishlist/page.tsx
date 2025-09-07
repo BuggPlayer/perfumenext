@@ -5,6 +5,7 @@ import { useAppSelector } from '@/store/hooks';
 import Layout from '@/components/layout/Layout';
 import ProductGrid from '@/components/products/ProductGrid';
 import { Heart } from 'lucide-react';
+import Link from 'next/link';
 
 const WishlistPage: React.FC = () => {
   const { items: wishlistItems, totalItems } = useAppSelector(state => state.wishlist);
@@ -33,12 +34,12 @@ const WishlistPage: React.FC = () => {
               <p className="text-gray-500 mb-4">
                 Start adding your favorite perfumes to your wishlist
               </p>
-              <a
+              <Link
                 href="/products"
                 className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
                 Browse Products
-              </a>
+              </Link>
             </div>
           ) : (
             <ProductGrid

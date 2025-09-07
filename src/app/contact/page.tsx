@@ -33,8 +33,8 @@ const ContactPage: React.FC = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
     
-    // Show success message (in a real app, you'd show a toast notification)
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    // Show success message (in a real app, you’d show a toast notification)
+    alert('Thank you for your message! We’ll get back to you soon.');
   };
 
   const subjectOptions = [
@@ -56,8 +56,8 @@ const ContactPage: React.FC = () => {
               Contact Us
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have questions or need assistance? We're here to help! Reach out to our team 
-              and we'll get back to you as soon as possible.
+              Have questions or need assistance? We’re here to help! Reach out to our team 
+              and we’ll get back to you as soon as possible.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ const ContactPage: React.FC = () => {
                       label="Subject"
                       options={subjectOptions}
                       value={formData.subject}
-                      onChange={(value) => handleInputChange('subject', value)}
+                      onChange={(e) => handleInputChange('subject', e.target.value)}
                       placeholder="Select a subject"
                       required
                     />

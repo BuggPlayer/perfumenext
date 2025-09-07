@@ -66,7 +66,7 @@ const BrandsPage: React.FC = () => {
           {/* Page Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Brands</h1>
-            <p className="text-gray-600">Explore fragrances from the world\'s most prestigious brands</p>
+            <p className="text-gray-600">Explore fragrances from the world’s most prestigious brands</p>
           </div>
 
           {/* Brands Grid */}
