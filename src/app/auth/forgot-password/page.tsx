@@ -54,7 +54,7 @@ const ForgotPasswordPage: React.FC = () => {
               Check your email
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
-              We've sent a password reset link to{' '}
+              We’ve sent a password reset link to{' '}
               <span className="font-medium text-gray-900">{email}</span>
             </p>
           </div>
@@ -66,7 +66,7 @@ const ForgotPasswordPage: React.FC = () => {
                   Click the link in the email to reset your password. The link will expire in 1 hour.
                 </p>
                 <p className="text-sm text-gray-500">
-                  Didn't receive the email? Check your spam folder or{' '}
+                  Didn’t receive the email? Check your spam folder or{' '}
                   <button
                     onClick={() => setIsSubmitted(false)}
                     className="text-primary-600 hover:text-primary-500 font-medium"
@@ -109,7 +109,7 @@ const ForgotPasswordPage: React.FC = () => {
             Forgot your password?
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            No worries! Enter your email and we'll send you reset instructions.
+            No worries! Enter your email and we’ll send you reset instructions.
           </p>
         </div>
 

@@ -53,7 +53,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
           <Select
             label="Address Type"
             value={address.type}
-            onChange={(value) => handleChange('type', value)}
+            onChange={(e) => handleChange('type', e.target.value)}
             options={[
               { value: 'home', label: 'Home' },
               { value: 'work', label: 'Work' },
@@ -123,7 +123,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
         <Select
           label="Country"
           value={address.country}
-          onChange={(value) => handleChange('country', value)}
+          onChange={(e) => handleChange('country', e.target.value)}
           options={[
             { value: 'US', label: 'United States' },
             { value: 'CA', label: 'Canada' },

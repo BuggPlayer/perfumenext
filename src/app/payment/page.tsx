@@ -225,7 +225,7 @@ const PaymentMethodsPage: React.FC = () => {
                 )}
                 
                 {payment.type === 'paypal' && (
-                  <p className="text-gray-600">You'll be redirected to PayPal during checkout</p>
+                  <p className="text-gray-600">You’ll be redirected to PayPal during checkout</p>
                 )}
                 
                 {payment.type === 'apple-pay' && (
