@@ -15,7 +15,7 @@ interface ProductFiltersProps {
     inStock: boolean;
     rating: number;
   };
-  onFiltersChange: (filters: any) => void;
+  onFiltersChange: (filters: ProductFiltersProps['filters']) => void;
   onClearFilters: () => void;
   totalProducts: number;
 }
@@ -56,7 +56,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
     }));
   };
 
-  const handleFilterChange = (filterType: string, value: any) => {
+  const handleFilterChange = (filterType: keyof ProductFiltersProps['filters'], value: ProductFiltersProps['filters'][typeof filterType]) => {
     onFiltersChange({
       ...filters,
       [filterType]: value

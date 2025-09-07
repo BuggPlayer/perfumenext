@@ -44,7 +44,7 @@ interface ContainerProps {
 
 export const NotificationProvider: React.FC<React.PropsWithChildren<ContainerProps>> = ({ children, position = 'top-right' }) => {
   const [items, setItems] = useState<Notification[]>([]);
-  const timers = useRef<Record<string, any>>({});
+  const timers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
   const show = useCallback((n: Omit<Notification, 'id'>) => {
     const id = Math.random().toString(36).slice(2);

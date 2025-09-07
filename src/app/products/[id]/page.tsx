@@ -8,6 +8,7 @@ import ProductDetails from '@/components/products/ProductDetails';
 import ProductGrid from '@/components/products/ProductGrid';
 import Layout from '@/components/layout/Layout';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import Link from 'next/link';
 
 const ProductDetailsPage: React.FC = () => {
   const params = useParams();
@@ -57,21 +58,15 @@ const ProductDetailsPage: React.FC = () => {
         <nav className="text-sm text-gray-500 mb-8">
           <ol className="flex items-center space-x-2">
             <li>
-              <a href="/" className="hover:text-primary-600 transition-colors">
-                Home
-              </a>
+              <Link href="/" className="hover:text-primary-600 transition-colors">Home</Link>
             </li>
             <li>/</li>
             <li>
-              <a href="/products" className="hover:text-primary-600 transition-colors">
-                Products
-              </a>
+              <Link href="/products" className="hover:text-primary-600 transition-colors">Products</Link>
             </li>
             <li>/</li>
             <li>
-              <a href={`/categories/${product.category.toLowerCase()}`} className="hover:text-primary-600 transition-colors">
-                {product.category}
-              </a>
+              <Link href={`/categories/${product.category.toLowerCase()}`} className="hover:text-primary-600 transition-colors">{product.category}</Link>
             </li>
             <li>/</li>
             <li className="text-gray-900 font-medium">{product.name}</li>
@@ -108,7 +103,7 @@ const ProductDetailsPage: React.FC = () => {
                 name: 'Sarah M.',
                 rating: 5,
                 date: '2 days ago',
-                comment: 'Absolutely love this fragrance! It\'s become my signature scent. Long-lasting and sophisticated.'
+                comment: 'Absolutely love this fragrance! It’s become my signature scent. Long-lasting and sophisticated.'
               },
               {
                 name: 'Michael R.',

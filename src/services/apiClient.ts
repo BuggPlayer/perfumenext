@@ -27,7 +27,8 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     // Global error normalization
     const status = error.response?.status;
-    const message = (error.response?.data as any)?.message || error.message || 'Request failed';
+    const respData = error.response?.data as { message?: string } | undefined;
+    const message = respData?.message || error.message || 'Request failed';
 
     // Handle unauthorized globally in the future
     if (status === 401) {

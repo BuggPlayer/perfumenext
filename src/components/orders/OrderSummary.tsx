@@ -1,11 +1,18 @@
 import React from 'react';
 import { ShoppingBag, Package, Truck, CheckCircle } from 'lucide-react';
 import { formatPrice } from '@/lib/utils';
-import { Product } from '@/store/slices/productSlice';
+// Using a minimal product shape for summary display to avoid over-typing
+interface SummaryProduct {
+  id: string;
+  name: string;
+  brand: string;
+  images: string[];
+  size: string;
+}
 import ProductImage from '../ui/ProductImage';
 
 export interface OrderItem {
-  product: Product;
+  product: SummaryProduct;
   quantity: number;
   price: number;
 }

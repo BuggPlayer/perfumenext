@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { demoProducts } from '@/data/demoData';
 import ProductCard from '../products/ProductCard';
 import Button from '../ui/Button';
+import Carousel from '../ui/Carousel';
 
 const FeaturedProducts: React.FC = () => {
   const featuredProducts = demoProducts.filter(product => product.featured);
@@ -22,11 +23,11 @@ const FeaturedProducts: React.FC = () => {
                  </Link>
                </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <Carousel className="mt-2" ariaLabel="Featured products carousel" autoplayMs={5000}>
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

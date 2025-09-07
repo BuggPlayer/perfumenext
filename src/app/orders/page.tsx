@@ -10,6 +10,7 @@ import Select from '@/components/ui/Select';
 import OrderStatus from '@/components/orders/OrderStatus';
 import OrderSummary from '@/components/orders/OrderSummary';
 import { formatPrice } from '@/lib/utils';
+import Link from 'next/link';
 
 // Mock order data
 const mockOrders = [
@@ -118,7 +119,7 @@ const OrdersPage: React.FC = () => {
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Please sign in to view your orders</h1>
             <p className="text-gray-600 mb-6">You need to be signed in to access your order history.</p>
-            <Button href="/auth/signin">Sign In</Button>
+            <Link href="/auth/signin"><Button>Sign In</Button></Link>
           </div>
         </div>
       </Layout>
@@ -160,14 +161,14 @@ const OrdersPage: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by order ID, product name, or brand..."
-                icon={<Search className="w-4 h-4" />}
+                leftIcon={<Search className="w-4 h-4" />}
               />
             </div>
             <div className="w-full md:w-48">
               <Select
                 label="Status"
                 value={statusFilter}
-                onChange={setStatusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
                 options={[
                   { value: 'all', label: 'All Orders' },
                   { value: 'pending', label: 'Pending' },
@@ -191,11 +192,11 @@ const OrdersPage: React.FC = () => {
               <p className="text-gray-600 mb-6">
                 {searchTerm || statusFilter !== 'all' 
                   ? 'Try adjusting your search or filters'
-                  : 'You haven\'t placed any orders yet'
+                  : 'You haven’t placed any orders yet'
                 }
               </p>
               {!searchTerm && statusFilter === 'all' && (
-                <Button href="/products">Start Shopping</Button>
+                <Link href="/products"><Button>Start Shopping</Button></Link>
               )}
             </div>
           ) : (

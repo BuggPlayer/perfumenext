@@ -9,6 +9,7 @@ import {Card} from '@/components/ui/Card';
 import Modal from '@/components/ui/Modal';
 import AddressForm, { Address } from '@/components/forms/AddressForm';
 import { Address as AddressType } from '@/components/forms/AddressForm';
+import Link from 'next/link';
 
 // Mock addresses data
 const mockAddresses: AddressType[] = [
@@ -60,7 +61,7 @@ const AddressesPage: React.FC = () => {
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Please sign in to manage addresses</h1>
             <p className="text-gray-600 mb-6">You need to be signed in to manage your delivery addresses.</p>
-            <Button href="/auth/signin">Sign In</Button>
+            <Link href="/auth/signin"><Button>Sign In</Button></Link>
           </div>
         </div>
       </Layout>
