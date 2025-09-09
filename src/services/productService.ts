@@ -22,9 +22,31 @@ export const productService = {
     }
 
     const res = await api.get('/api/home/get-products', { params });
-    const list = (res?.data?.products ?? []) as any[];
+    type ApiProduct = {
+      _id?: string;
+      id?: string;
+      slug?: string;
+      name?: string;
+      brand?: string;
+      shopName?: string;
+      description?: string;
+      price?: number | string;
+      originalPrice?: number | string;
+      images?: string[];
+      category?: string;
+      fragranceNotes?: string[];
+      size?: string;
+      inStock?: boolean;
+      stock?: number;
+      rating?: number | string;
+      reviewCount?: number | string;
+      featured?: boolean;
+      bestSeller?: boolean;
+      createdAt?: string;
+    };
+    const list = (res?.data?.products ?? []) as ApiProduct[];
 
-    const mapped: Product[] = list.map((p: any) => ({
+    const mapped: Product[] = list.map((p) => ({
       id: String(p._id ?? p.id ?? p.slug ?? Math.random().toString(36).slice(2)),
       name: String(p.name ?? ''),
       brand: String(p.brand ?? p.shopName ?? ''),
@@ -48,7 +70,13 @@ export const productService = {
 
   async getProductById(id: string): Promise<Product> {
     const res = await api.get(`/api/products/${id}`);
-    const p: any = res.data?.data ?? res.data ?? {};
+    type ApiProduct = {
+      _id?: string; id?: string; slug?: string; name?: string; brand?: string; shopName?: string;
+      description?: string; price?: number | string; originalPrice?: number | string; images?: string[];
+      category?: string; fragranceNotes?: string[]; size?: string; inStock?: boolean; stock?: number;
+      rating?: number | string; reviewCount?: number | string; featured?: boolean; bestSeller?: boolean; createdAt?: string;
+    };
+    const p = (res.data?.data ?? res.data ?? {}) as ApiProduct;
     const mapped: Product = {
       id: String(p._id ?? p.id ?? p.slug ?? id),
       name: String(p.name ?? ''),
