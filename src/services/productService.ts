@@ -22,6 +22,7 @@ export const productService = {
     }
 
     const res = await api.get('/api/home/get-products', { params });
+    
     type ApiProduct = {
       _id?: string;
       id?: string;
