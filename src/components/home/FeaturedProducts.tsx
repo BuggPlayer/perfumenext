@@ -11,7 +11,6 @@ interface FeaturedProductsProps {
 }
 
 const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products = [], isLoading }) => {
-  console.log('featuredProducts', products);
   // const featuredProducts = (products?.length ? products : []).filter(p => p.featured).slice(0, 8);
 
   return (

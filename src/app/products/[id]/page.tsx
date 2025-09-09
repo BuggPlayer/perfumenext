@@ -1,41 +1,82 @@
 'use client';
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, notFound } from 'next/navigation';
-import { demoProducts } from '@/data/demoData';
 import { Product } from '@/store/slices/productSlice';
 import ProductDetails from '@/components/products/ProductDetails';
 import ProductGrid from '@/components/products/ProductGrid';
 import Layout from '@/components/layout/Layout';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import Link from 'next/link';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { fetchProducts } from '@/store/slices/productSlice';
+import { productService } from '@/services/productService';
 
 const ProductDetailsPage: React.FC = () => {
   const params = useParams();
-  const productId = params.id as string;
+  const rawParam = params.id as string;
+  const routeKey = decodeURIComponent(rawParam);
+  const dispatch = useAppDispatch();
+  const { products, isLoading } = useAppSelector(s => s.products);
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [attemptedByIdFetch, setAttemptedByIdFetch] = useState(false);
+  const [attemptedListFetch, setAttemptedListFetch] = useState(false);
+
+  // Ensure products are loaded
+  useEffect(() => {
+    const run = async () => {
+      if (!products.length) {
+        await dispatch(fetchProducts());
+      }
+      setAttemptedListFetch(true);
+    };
+    run();
+  }, [dispatch, products.length]);
+
+  // Resolve product and related once products are present or id changes
+  const slugify = (s: string) =>
+    s
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-');
 
   useEffect(() => {
-    // Simulate API call delay
-    const timer = setTimeout(() => {
-      const foundProduct = demoProducts.find(p => p.id === productId);
-      if (foundProduct) {
-        setProduct(foundProduct);
-        // Get related products (same category or brand)
-        const related = demoProducts
-          .filter(p => p.id !== productId && (p.category === foundProduct.category || p.brand === foundProduct.brand))
-          .slice(0, 4);
-        setRelatedProducts(related);
+    if (!products.length) return;
+    const found = products.find(p => p.id === routeKey || slugify(p.name) === routeKey);
+    if (found) {
+      setProduct(found);
+      const related = products
+        .filter(p => p.id !== found.id && (p.category === found.category || p.brand === found.brand))
+        .slice(0, 4);
+      setRelatedProducts(related);
+    } else {
+      setProduct(null);
+      setRelatedProducts([]);
+    }
+  }, [products, routeKey]);
+
+  // Fallback: fetch product by id directly if not found in list
+  useEffect(() => {
+    const run = async () => {
+      if (product || attemptedByIdFetch) return;
+      // Only attempt for id-like keys (hex-like or long id)
+      const looksLikeId = /^[a-zA-Z0-9]{12,}$/.test(routeKey);
+      if (!looksLikeId) return;
+      try {
+        const p = await productService.getProductById(routeKey);
+        if (p && p.id) {
+          setProduct(p);
+        }
+      } finally {
+        setAttemptedByIdFetch(true);
       }
-      setIsLoading(false);
-    }, 500);
+    };
+    run();
+  }, [product, attemptedByIdFetch, routeKey]);
 
-    return () => clearTimeout(timer);
-  }, [productId]);
-
-  if (isLoading) {
+  if (isLoading || (!product && (!attemptedByIdFetch || !attemptedListFetch))) {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-12">
