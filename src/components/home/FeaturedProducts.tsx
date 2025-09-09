@@ -30,7 +30,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products = [], isLo
         
         {/* Carousel removed per request; showing a responsive 8-product grid */}
         {isLoading ? null : (
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          <div className="mt-2 grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {products?.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

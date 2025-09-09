@@ -116,24 +116,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         <p className="text-xs text-[var(--color-text-muted)] mb-3">{product.size}</p>
         
         {/* Action Buttons */}
-        <div className="flex  gap-4">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <Button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-             variant="outline"
-            // className="w-full"
-            // size="sm"
-            //  variant="secondary"
+            className="w-full sm:w-auto"
+            size="sm"
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             {product.inStock ? 'Add to Cart' : 'Out of Stock'}
           </Button>
           
-          <Link href={`/products/${product.id}`}>
+          <Link href={`/products/${product.id}`} className="w-full sm:w-auto">
             <Button
               variant="outline"
-              // className="w-full"
-              // size="sm"
+              className="w-full sm:w-auto"
+              size="sm"
             >
               View Details
             </Button>
