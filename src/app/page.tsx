@@ -2,8 +2,7 @@
 
 import React from 'react';
 import Layout from '@/components/layout/Layout';
-import HeroSection from '@/components/home/HeroSection';
-import HeroCarousel from '@/components/home/HeroCarousel';
+import HeroShowcase from '@/components/home/HeroShowcase';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -21,7 +20,7 @@ export default function Home() {
 console.log('products---1', products);
   return (
     <Layout>
-      <HeroCarousel />
+      <HeroShowcase />
       <FeaturedProducts products={products} isLoading={isLoading} />
     </Layout>
   );
