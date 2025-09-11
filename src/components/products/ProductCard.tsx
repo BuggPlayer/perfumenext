@@ -120,7 +120,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           <Button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto border border-primary-500"
             size="sm"
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />

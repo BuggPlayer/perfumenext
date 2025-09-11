@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Heart, ShoppingCart, Star, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
+import { Heart, ShoppingCart, Star, Share2, Truck, Shield, RotateCcw, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import { addToCart } from '@/store/slices/cartSlice';
 import { addToWishlist, removeFromWishlist } from '@/store/slices/wishlistSlice';
@@ -19,12 +20,18 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const { items: wishlistItems } = useAppSelector(state => state.wishlist);
   
   const isInWishlist = wishlistItems.some(item => item.id === product.id);
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product, quantity }));
+  };
+
+  const handleBuyNow = () => {
+    dispatch(addToCart({ product, quantity }));
+    router.push('/checkout');
   };
 
   const handleWishlistToggle = () => {
@@ -201,11 +208,20 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
             <Button
               onClick={handleAddToCart}
               disabled={!product.inStock}
-              className="flex-1"
+              className="flex-1 border border-primary-500"
               size="lg"
             >
               <ShoppingCart className="w-5 h-5 mr-2" />
               {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+            </Button>
+            <Button
+              onClick={handleBuyNow}
+              disabled={!product.inStock}
+              className="flex-1"
+              size="lg"
+            >
+              Proceed to Checkout
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             
             <Button
