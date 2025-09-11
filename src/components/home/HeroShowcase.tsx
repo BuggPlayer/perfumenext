@@ -17,9 +17,9 @@ const HeroShowcase: React.FC = () => {
               <span className="text-sm font-medium text-[var(--primary-800)]">Free Shipping on Orders Above $50!</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-4">
-              Scents you'll love.
+              Scents you’ll love.
               <br />
-              Prices you'll trust.
+              Prices you’ll trust.
             </h2>
             <p className="text-[var(--color-text-muted)] font-semibold mb-6">Starts from <span className="text-2xl text-[var(--color-dark)]">$4.90</span></p>
             <Link href="/products">
@@ -65,9 +65,9 @@ const HeroShowcase: React.FC = () => {
                 <span className="text-sm font-medium text-[var(--primary-800)]">Free Shipping on Orders Above $50!</span>
               </div>
               <h2 className="text-5xl xl:text-6xl font-extrabold leading-tight mb-6">
-                Scents you'll love.
+                Scents you’ll love.
                 <br />
-                Prices you'll trust.
+                Prices you’ll trust.
               </h2>
               <p className="text-[var(--color-text-muted)] font-semibold mb-8">Starts from <span className="text-3xl text-[var(--color-dark)]">$4.90</span></p>
               <Link href="/products">
