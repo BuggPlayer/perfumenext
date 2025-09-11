@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import ProductCard from '../products/ProductCard';
 import Button from '../ui/Button';
+import LoadingSpinner from '../ui/LoadingSpinner';
 import { Product } from '@/store/slices/productSlice';
 // import Carousel from '../ui/Carousel';
 
@@ -29,7 +30,11 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products = [], isLo
                </div>
         
         {/* Carousel removed per request; showing a responsive 8-product grid */}
-        {isLoading ? null : (
+        {isLoading ? (
+          <div className="mt-8 flex items-center justify-center py-8">
+            <LoadingSpinner size="lg" />
+          </div>
+        ) : (
           <div className="mt-2 grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {products?.map((product) => (
               <ProductCard key={product.id} product={product} />

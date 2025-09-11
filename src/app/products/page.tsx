@@ -10,7 +10,7 @@ import ProductFilters from '@/components/products/ProductFilters';
 
 const ProductsPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { filteredProducts, filters } = useAppSelector(state => state.products);
+  const { filteredProducts, filters, isLoading } = useAppSelector(state => state.products);
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 console.log('filteredProducts', filteredProducts);
@@ -88,6 +88,7 @@ console.log('filteredProducts', filteredProducts);
               {/* Products Grid */}
               <ProductGrid
                 products={filteredBySearch}
+                isLoading={isLoading}
                 columns={4}
                 emptyMessage="Try adjusting your filters or search terms"
               />
