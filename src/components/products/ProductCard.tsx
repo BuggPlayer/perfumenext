@@ -33,9 +33,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
   };
 
   return (
-    <div className={`group bg-[var(--color-surface)] rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-[var(--border-faded)] ${className}`}>
+    <div className={`group bg-[var(--bg-surface)] rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-[var(--border-faded)] ${className}`}>
       {/* Product Image */}
-      <div className="relative aspect-square overflow-hidden bg-background-secondary">
+      <div className="relative aspect-square overflow-hidden bg-[var(--bg-surface)]">
         <Link href={`/products/${product.id}`}>
           <ProductImage
             src={product.images[0] || '/images/placeholder.jpg'}
@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
           className={`absolute top-2 right-2 p-1.5 rounded-full transition-all duration-200 ${
             isInWishlist
               ? 'bg-primary-500 text-black shadow-lg'
-              : 'bg-background-secondary text-textColor-muted hover:bg-primary-transparent hover:text-primary-600'
+              : 'bg-[var(--bg-surface)] text-[var(--text-muted)] hover:bg-primary-transparent hover:text-primary-600'
           }`}
         >
           <Heart className={`w-3.5 h-3.5 ${isInWishlist ? 'fill-current' : ''}`} />
@@ -65,7 +65,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         
         {/* Out of Stock Badge */}
         {!product.inStock && (
-          <div className="absolute top-2 left-2 bg-[var(--color-text-muted)] text-[var(--color-dark)] text-xs font-bold px-2 py-1 rounded">
+          <div className="absolute top-2 left-2 bg-muted text-inverse text-xs font-bold px-2 py-1 rounded">
             Out of Stock
           </div>
         )}
@@ -74,11 +74,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
       {/* Product Info */}
       <div className="p-3">
         {/* Brand */}
-        <p className="text-xs text-[var(--color-text-muted)] font-medium mb-1">{product.brand}</p>
+        <p className="text-xs text-[var(--text-muted)] font-medium mb-1">{product.brand}</p>
         
         {/* Product Name */}
         <Link href={`/products/${product.id}`}>
-          <h3 className="font-medium text-[var(--color-text)] mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors text-sm cursor-pointer">
+          <h3 className="font-medium text-[var(--text-primary)] mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors text-sm cursor-pointer">
             {product.name}
           </h3>
         </Link>
@@ -102,18 +102,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
         
         {/* Price */}
         <div className="flex items-center space-x-2 mb-3">
-          <span className="text-base font-bold text-[var(--color-text)]">
+          <span className="text-base font-bold text-[var(--text-primary)]">
             {formatPrice(product.price)}
           </span>
           {product.originalPrice && product.originalPrice > product.price && (
-            <span className="text-sm text-[var(--color-text-muted)] line-through">
+            <span className="text-sm text-[var(--text-muted)] line-through">
               {formatPrice(product.originalPrice)}
             </span>
           )}
         </div>
         
         {/* Size */}
-        <p className="text-xs text-[var(--color-text-muted)] mb-3">{product.size}</p>
+        <p className="text-xs text-[var(--text-muted)] mb-3">{product.size}</p>
         
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">

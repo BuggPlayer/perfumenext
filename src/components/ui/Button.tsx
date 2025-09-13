@@ -35,11 +35,11 @@ const Button: React.FC<ButtonProps> = ({
   };
   
   const disabledClassesByVariant: Record<NonNullable<ButtonProps['variant']>, string> = {
-    primary: 'bg-background-secondary text-textColor-muted border border-borderColor-faded hover:shadow-none hover:bg-background-secondary',
-    secondary: 'bg-background-secondary text-textColor-muted border border-borderColor-faded hover:shadow-none',
-    outline: 'border border-borderColor-faded text-textColor-muted hover:bg-transparent',
-    ghost: 'text-textColor-muted hover:bg-transparent',
-    danger: 'bg-background-secondary text-textColor-muted border border-borderColor-faded hover:shadow-none',
+    primary: 'bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-faded)] hover:shadow-none hover:bg-[var(--bg-surface)]',
+    secondary: 'bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-faded)] hover:shadow-none',
+    outline: 'border border-[var(--border-faded)] text-[var(--text-muted)] hover:bg-transparent',
+    ghost: 'text-[var(--text-muted)] hover:bg-transparent',
+    danger: 'bg-[var(--bg-surface)] text-[var(--text-muted)] border border-[var(--border-faded)] hover:shadow-none',
   };
 
   return (

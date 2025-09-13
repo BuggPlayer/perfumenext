@@ -566,3 +566,4 @@ The website is fully responsive with breakpoints:
 ## 📄 License
 
 This project is licensed under the MIT License.
+https://elements.envato.com/bijoux-jewellery-shop-ecommerce-woocommerce-SJ3DHKR

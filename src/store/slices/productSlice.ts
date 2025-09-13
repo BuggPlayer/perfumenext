@@ -168,5 +168,5 @@ export const {
   setError 
 } = productSlice.actions;
 
-export default productSlice.reducer;
 
+export default productSlice.reducer;

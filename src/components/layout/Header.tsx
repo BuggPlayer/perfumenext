@@ -50,11 +50,11 @@ const Header: React.FC = () => {
           {/* Search Bar */}
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-textColor-muted w-4 h-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--text-muted)] w-4 h-4" />
               <input
                 type="text"
                 placeholder="Search fragrances..."
-                className="w-full pl-10 pr-4 py-2 bg-background-secondary border border-borderColor-faded rounded-lg text-textColor-secondary placeholder:text-textColor-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 bg-[var(--bg-surface)] border border-[var(--border-faded)] rounded-lg text-[var(--text-secondary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -117,7 +117,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[var(--color-dark)] border-t border-borderColor-faded">
+        <div className="md:hidden bg-[var(--color-dark)] border-t border-[var(--border-faded)]">
           <div className="px-4 py-2 space-y-1">
             {navigation.map((item) => (
               <Link

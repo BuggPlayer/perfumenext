@@ -18,20 +18,20 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-xl font-bold text-primary-400">PerfumeLux</span>
             </div>
-            <p className="text-textColor-muted text-sm leading-relaxed">
+            <p className="text-muted text-sm leading-relaxed">
               Discover the world’s finest fragrances from luxury brands. Find your perfect perfume and make every moment unforgettable.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <a href="#" className="text-muted hover:text-primary-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <a href="#" className="text-muted hover:text-primary-400 transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <a href="#" className="text-muted hover:text-primary-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <a href="#" className="text-muted hover:text-primary-400 transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -39,30 +39,30 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-textColor-secondary">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-secondary">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/products" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/categories" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Categories
                 </Link>
               </li>
               <li>
-                <Link href="/brands" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/brands" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Brands
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/about" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/contact" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Contact
                 </Link>
               </li>
@@ -71,25 +71,25 @@ const Footer: React.FC = () => {
 
           {/* Account */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-textColor-secondary">Account</h3>
+            <h3 className="text-lg font-semibold text-secondary">Account</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/dashboard" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/dashboard" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link href="/orders" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/orders" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Order History
                 </Link>
               </li>
               <li>
-                <Link href="/wishlist" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/wishlist" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Wishlist
                 </Link>
               </li>
               <li>
-                <Link href="/profile" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/profile" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Profile
                 </Link>
               </li>
@@ -98,30 +98,30 @@ const Footer: React.FC = () => {
 
           {/* Customer Service */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-textColor-secondary">Customer Service</h3>
+            <h3 className="text-lg font-semibold text-secondary">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/shipping" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/shipping" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Shipping & Returns
                 </Link>
               </li>
               <li>
-                <Link href="/size-guide" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/size-guide" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Size Guide
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/faq" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/privacy" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-textColor-muted hover:text-primary-400 transition-colors text-sm">
+                <Link href="/terms" className="text-muted hover:text-primary-400 transition-colors text-sm">
                   Terms of Service
                 </Link>
               </li>
@@ -175,24 +175,24 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-borderColor-faded py-6">
+      <div className="border-t border-[var(--border-faded)] py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2 text-textColor-muted text-sm">
+            <div className="flex items-center space-x-2 text-muted text-sm">
               <span>© {currentYear} PerfumeLux. All rights reserved.</span>
             </div>
             <div className="flex items-center space-x-6 text-sm">
-              <Link href="/privacy" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <Link href="/privacy" className="text-muted hover:text-primary-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <Link href="/terms" className="text-muted hover:text-primary-400 transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-textColor-muted hover:text-primary-400 transition-colors">
+              <Link href="/cookies" className="text-muted hover:text-primary-400 transition-colors">
                 Cookie Policy
               </Link>
             </div>
-            <div className="flex items-center space-x-2 text-textColor-muted text-sm">
+            <div className="flex items-center space-x-2 text-muted text-sm">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-500 fill-current" />
               <span>for fragrance lovers</span>
